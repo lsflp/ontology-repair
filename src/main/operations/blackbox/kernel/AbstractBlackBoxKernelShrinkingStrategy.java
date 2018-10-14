@@ -12,7 +12,7 @@ import java.util.Set;
  * Represents a variation of the shrinking part of BlackBox algorithm used to
  * compute elements of remainder sets.
  *
- * @author Raphael M. Cóbe (adapted by Vinícius B. Matos)
+ * @author Raphael M. Cóbe (adapted by Vinícius B. Matos and Luís F. de M. C. Silva)
  */
 public abstract class AbstractBlackBoxKernelShrinkingStrategy extends AbstractBlackBoxShrinkingStrategy {
 
