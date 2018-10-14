@@ -2,6 +2,7 @@ package main.operations.blackbox;
 
 import main.operations.blackbox.remainder.AbstractBlackBoxRemainderExpansionStrategy;
 import org.semanticweb.owlapi.model.OWLAxiom;
+import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.reasoner.OWLReasoner;
@@ -32,12 +33,15 @@ public class ClassicalBlackBoxExpansionStrategy extends AbstractBlackBoxRemainde
     @Override
     public Set<OWLAxiom> expand(Set<OWLAxiom> kb, OWLAxiom entailment) throws OWLOntologyCreationException {
         Set<OWLAxiom> expansionResult = new HashSet<>();
+
+        OWLOntology ontology = manager.createOntology(expansionResult);
+        OWLReasoner reasoner = reasonerFactory.createReasoner(ontology);
+
         for (OWLAxiom beta : kb) {
-            expansionResult.add(beta);
-            OWLReasoner reasoner = reasonerFactory.createReasoner
-                                   (manager.createOntology(expansionResult));
-            if (reasoner.isEntailed(entailment))
+            manager.addAxiom(ontology, beta);
+            if (reasoner.isEntailed(entailment)) {
                 break;
+            }
         }
 
         return expansionResult;

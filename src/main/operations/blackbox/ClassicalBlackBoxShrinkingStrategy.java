@@ -35,10 +35,11 @@ public class ClassicalBlackBoxShrinkingStrategy
     @Override
     public Set<OWLAxiom> shrink(Set<OWLAxiom> kb, OWLAxiom entailment, Set<OWLAxiom> keep)
             throws OWLOntologyCreationException {
+
         HashSet<OWLAxiom> shrinkingResult = new HashSet<>();
         shrinkingResult.addAll(kb);
 
-        for (OWLAxiom beta : shrinkingResult) {
+        for (OWLAxiom beta : kb) {
             shrinkingResult.remove(beta);
             OWLReasoner reasoner = reasonerFactory.createReasoner
                                    (manager.createOntology(shrinkingResult));
