@@ -3,6 +3,7 @@ package main;
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.ParameterException;
+import main.operations.KernelContraction;
 import main.operations.SRWPseudoContraction;
 
 /**
@@ -57,6 +58,14 @@ public class OntologyRepair {
     private boolean help = false;
 
     private void run() {
+        if (canPerformContraction()) {
+            if (coreRetainment) {
+                KernelContraction kc = new KernelContraction(inputFileName, outputFileName, formulaString,
+                                                             maxQueueSize, maxRemainderSize);
+                kc.run();
+            }
+        }
+
         if (srwPseudoContraction) {
             SRWPseudoContraction srw = new SRWPseudoContraction(inputFileName, outputFileName, formulaString,
                                                                 maxQueueSize, maxRemainderSize);
@@ -70,6 +79,14 @@ public class OntologyRepair {
 
     private boolean isOneOperation() {
         return contraction ^ revision ^ srwPseudoContraction;
+    }
+
+    private boolean canPerformContraction() {
+        return contraction & isOneMinimalityPostulate();
+    }
+
+    private boolean isOneMinimalityPostulate() {
+        return coreRetainment ^ relevance;
     }
 
     public static void main(String[] args) throws Exception {

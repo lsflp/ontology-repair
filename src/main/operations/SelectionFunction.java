@@ -1,4 +1,4 @@
-package main.operations.srwpseudocontraction;
+package main.operations;
 
 import java.util.Set;
 

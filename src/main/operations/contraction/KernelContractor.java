@@ -1,92 +1,41 @@
-package main.operations.srwpseudocontraction;
+package main.operations.contraction;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
+import main.operations.SelectionFunction;
+import main.operations.HumanReadableAxiomExpressionGenerator;
+import main.operations.srwpseudocontraction.RemainderBuilder;
+import org.semanticweb.HermiT.ReasonerFactory;
+import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.model.*;
+import org.semanticweb.owlapi.reasoner.OWLReasoner;
+import org.semanticweb.owlapi.util.*;
+
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import main.operations.HumanReadableAxiomExpressionGenerator;
-import main.operations.SelectionFunction;
-import org.semanticweb.owlapi.apibinding.OWLManager;
-import org.semanticweb.owlapi.model.AxiomType;
-import org.semanticweb.owlapi.model.OWLAxiom;
-import org.semanticweb.owlapi.model.OWLClass;
-import org.semanticweb.owlapi.model.OWLDisjointClassesAxiom;
-import org.semanticweb.owlapi.model.OWLException;
-import org.semanticweb.owlapi.model.OWLOntology;
-import org.semanticweb.owlapi.model.OWLOntologyManager;
-import org.semanticweb.owlapi.reasoner.OWLReasoner;
-import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
-import org.semanticweb.owlapi.util.InferredAxiomGenerator;
-import org.semanticweb.owlapi.util.InferredClassAssertionAxiomGenerator;
-import org.semanticweb.owlapi.util.InferredOntologyGenerator;
-import org.semanticweb.owlapi.util.InferredPropertyAssertionGenerator;
-import org.semanticweb.owlapi.util.InferredSubClassAxiomGenerator;
-
 /**
- * Implements a Belief Revision operation proposed by Santos, Ribeiro and
- * Wassermann.
- *
- * The operation, which we will call SRW pseudo-contraction, is defined as:
- *
- * ∩ γ(Cn*(B) ⊥ α),
- *
- * where γ is a selection function that chooses some elements of the remainder
- * set, Cn* is a tarskian consequence operator
+ * Implements a Belief Revision operation called Contraction, using the Kernel Constructor.
  *
  * The resulting set must not imply the formula α.
  *
- * @author Vinícius B. Matos
+ * @author Luis F. de M. C. Silva (inspired by Vinícius B. Matos)
  */
-public class SRWPseudoContractor {
-
-    /**
-     * A factory that constructs the reasoner.
-     */
-    private OWLReasonerFactory reasonerFactory;
-
-    /**
-     * The ontology manager.
-     */
+public class KernelContractor {
     private OWLOntologyManager manager;
-
-    /**
-     * A selection function implementation.
-     */
+    private ReasonerFactory reasonerFactory;
     private SelectionFunction gamma;
 
-    /**
-     * The capacity of the queue used by this algorithm.
-     */
-    private int maxQueueSize = Integer.MAX_VALUE;
+    private Integer maxRemainderElements;
+    private Integer maxQueueSize;
 
-    /**
-     * The maximum number of elements of the remainder set that will be computed.
-     */
-    private int maxRemainderElements = Integer.MAX_VALUE;
-
-    /**
-     * Instantiates the class.
-     *
-     * @param manager
-     *            the ontology manager
-     * @param reasonerFactory
-     *            a factory that constructs the reasoner
-     * @param gamma
-     *            a selection function implementation
-     */
-    public SRWPseudoContractor(OWLOntologyManager manager,
-            OWLReasonerFactory reasonerFactory, SelectionFunction gamma) {
+    public KernelContractor(OWLOntologyManager manager, ReasonerFactory reasonerFactory, SelectionFunction gamma) {
         this.manager = manager;
         this.reasonerFactory = reasonerFactory;
         this.gamma = gamma;
     }
 
     /**
-     * Executes the SRW pseudo-contraction operation on the ontology.
+     * Executes the kernel contraction operation on the ontology.
      *
      * @param ontology
      *            the initial ontology
@@ -96,17 +45,17 @@ public class SRWPseudoContractor {
      * @throws OWLException
      *             OWLException
      */
-    public Set<OWLAxiom> pseudocontract(OWLOntology ontology, OWLAxiom sentence)
+    public Set<OWLAxiom> kernelContract(OWLOntology ontology, OWLAxiom sentence)
             throws OWLException {
-        if (Logger.getLogger("SRW").isLoggable(Level.FINE)) {
-            Logger.getLogger("SRW").log(Level.FINE,
+        if (Logger.getLogger("KC").isLoggable(Level.FINE)) {
+            Logger.getLogger("KC").log(Level.FINE,
                     "\n---------- ORIGINAL ONTOLOGY: \n"
                             + HumanReadableAxiomExpressionGenerator
-                                    .generateExpressionForSet(ontology.getAxioms()));
-            Logger.getLogger("SRW").log(Level.FINE,
+                            .generateExpressionForSet(ontology.getAxioms()));
+            Logger.getLogger("KC").log(Level.FINE,
                     "\n---------- FORMULA TO BE CONTRACTED: \n"
                             + HumanReadableAxiomExpressionGenerator
-                                    .generateExpression(sentence));
+                            .generateExpression(sentence));
         }
         // create reasoner
         OWLReasoner reasoner = reasonerFactory.createReasoner(ontology);
@@ -117,12 +66,12 @@ public class SRWPseudoContractor {
                 reasoner, gens);
         ontologyGenerator.fillOntology(manager.getOWLDataFactory(), inferredOntology);
         manager.addAxioms(inferredOntology, ontology.getAxioms()); // keep asserted axioms
-        if (Logger.getLogger("SRW").isLoggable(Level.FINE)) {
-            Logger.getLogger("SRW").log(Level.FINE,
+        if (Logger.getLogger("KC").isLoggable(Level.FINE)) {
+            Logger.getLogger("KC").log(Level.FINE,
                     "\n---------- ONTOLOGY CLOSED UNDER Cn*: \n"
                             + HumanReadableAxiomExpressionGenerator
-                                    .generateExpressionForSet(
-                                            inferredOntology.getAxioms()));
+                            .generateExpressionForSet(
+                                    inferredOntology.getAxioms()));
         }
         // obtain remainder
         RemainderBuilder remainderBuilder = new RemainderBuilder(
@@ -135,7 +84,7 @@ public class SRWPseudoContractor {
         Set<Set<OWLAxiom>> remainderSet = remainderBuilder.remainderSet(kb, sentence);
         // apply a selection function
         Set<Set<OWLAxiom>> best = gamma.select(ontology, remainderSet);
-        if (Logger.getLogger("SRW").isLoggable(Level.FINER)) {
+        if (Logger.getLogger("KC").isLoggable(Level.FINER)) {
             StringBuilder sb = new StringBuilder(
                     "\n---------- " + (best.size()) + " SELECTED REMAINDER ELEMENT"
                             + (best.size() != 1 ? "S" : "") + ": \n");
@@ -143,9 +92,9 @@ public class SRWPseudoContractor {
             for (Set<OWLAxiom> s : best) {
                 sb.append(String.format("\n[%d/%d]:\n", ++i, best.size())
                         + HumanReadableAxiomExpressionGenerator
-                                .generateExpressionForSet(s));
+                        .generateExpressionForSet(s));
             }
-            Logger.getLogger("SRW").log(Level.FINER, sb.toString());
+            Logger.getLogger("KC").log(Level.FINER, sb.toString());
         }
         // find intersection
         Iterator<Set<OWLAxiom>> it = best.iterator();
@@ -174,11 +123,11 @@ public class SRWPseudoContractor {
                     }
             }
         }
-        if (Logger.getLogger("SRW").isLoggable(Level.FINE)) {
-            Logger.getLogger("SRW").log(Level.FINE,
+        if (Logger.getLogger("KC").isLoggable(Level.FINE)) {
+            Logger.getLogger("KC").log(Level.FINE,
                     "\n---------- FINAL ONTOLOGY: \n"
                             + HumanReadableAxiomExpressionGenerator
-                                    .generateExpressionForSet(intersection));
+                            .generateExpressionForSet(intersection));
         }
         // return intersection as an ontology
         return intersection;
@@ -241,4 +190,5 @@ public class SRWPseudoContractor {
     public void setMaxRemainderElements(int maxRemainderElements) {
         this.maxRemainderElements = maxRemainderElements;
     }
+
 }

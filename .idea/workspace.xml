@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="260a184b-143e-4c27-a9ea-3d382c4bd7e0" name="Default Changelist" comment="" />
+    <list default="true" id="260a184b-143e-4c27-a9ea-3d382c4bd7e0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/operations/KernelContraction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/OntologyRepair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/OntologyRepair.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/operations/SRWPseudoContraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/operations/SRWPseudoContraction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/operations/blackbox/remainder/full/ClassicalResinaRemainderBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/operations/blackbox/remainder/full/ClassicalResinaRemainderBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/operations/srwpseudocontraction/AlternativeOWLExpressionParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/operations/AlternativeOWLExpressionParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/operations/srwpseudocontraction/HumanReadableAxiomExpressionGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/operations/HumanReadableAxiomExpressionGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/operations/srwpseudocontraction/SRWPseudoContractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/operations/srwpseudocontraction/SRWPseudoContractor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/operations/srwpseudocontraction/SelectionFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/operations/SelectionFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/operations/srwpseudocontraction/SelectionFunctionAny.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/operations/SelectionFunctionAny.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/operations/srwpseudocontraction/SelectionFunctionFull.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/operations/SelectionFunctionFull.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,7 +43,7 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="4" />
-          <entry key="java" value="248" />
+          <entry key="java" value="261" />
           <entry key="sh" value="1" />
           <entry key="xml" value="1" />
         </counts>
@@ -38,7 +51,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="4" />
-          <entry key="JAVA" value="248" />
+          <entry key="JAVA" value="261" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="XML" value="1" />
         </counts>
@@ -46,13 +59,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="18" />
-          <entry key="java" value="5133" />
+          <entry key="java" value="5672" />
           <entry key="sh" value="35" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="5133" />
+          <entry key="JAVA" value="5672" />
           <entry key="PLAIN_TEXT" value="53" />
         </counts>
       </usages-collector>
@@ -61,10 +74,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/OntologyRepair.java">
+        <entry file="file://$PROJECT_DIR$/src/main/operations/contraction/KernelContractor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1140">
-              <caret line="60" column="50" selection-start-line="60" selection-start-column="50" selection-end-line="60" selection-end-column="50" />
+            <state relative-caret-position="-2501">
+              <caret line="16" column="91" selection-start-line="16" selection-start-column="91" selection-end-line="16" selection-end-column="91" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -73,13 +86,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/operations/SRWPseudoContraction.java">
+        <entry file="file://$PROJECT_DIR$/src/main/operations/srwpseudocontraction/SRWPseudoContractor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="76">
+              <caret line="28" selection-start-line="28" selection-end-line="42" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -100,7 +110,6 @@
       <find>black</find>
       <find>ad</find>
       <find>listener</find>
-      <find>SRW</find>
       <find>gamma</find>
       <find>system</find>
       <find>expan</find>
@@ -110,16 +119,15 @@
       <find>Remainder</find>
       <find>new HashSet</find>
       <find>system.ou</find>
+      <find>SRW</find>
     </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/br/usp/ime/operations/SRWPseudoContraction/blackbox/remainder/AbstractBlackBoxRemainderExpansionStrategy.java" />
-        <option value="$PROJECT_DIR$/src/main/java/br/usp/ime/operations/SRWPseudoContraction/blackbox/remainder/full/ClassicalResinaRemainderBuilder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/br/usp/ime/operations/SRWPseudoContraction/blackbox/remainder/AbstractBlackBoxRemainderShrinkingStrategy.java" />
-        <option value="$PROJECT_DIR$/src/main/java/br/usp/ime/operations/SRWPseudoContraction/blackbox/remainder/BlackBoxRemainder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/br/usp/ime/operations/SRWPseudoContraction/blackbox/remainder/shrinkingstrategies/ClassicalBlackBoxRemainderShrinkingStrategy.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/usp/ime/operations/SRWPseudoContraction/blackbox/remainder/shrinkingstrategies/SlidingWindowBlackBoxRemainderShrinkingStrategy.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/usp/ime/operations/SRWPseudoContraction/blackbox/remainder/shrinkingstrategies/TrivialBlackBoxRemainderShrinkingStrategy.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/usp/ime/operations/SRWPseudoContraction/srwpseudocontraction/RemainderBuilder.java" />
@@ -154,8 +162,6 @@
         <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/AbstractBlackBoxKernelShrinkingStrategy.java" />
         <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/expansionstrategies/BlackBoxKernelExpansionStrategy.java" />
         <option value="$PROJECT_DIR$/src/main/operations/SRWPseudoContractionStandalone.java" />
-        <option value="$PROJECT_DIR$/src/main/OntologyRepair.java" />
-        <option value="$PROJECT_DIR$/src/main/operations/SRWPseudoContraction.java" />
         <option value="$PROJECT_DIR$/src/main/operations/blackbox/remainder/expansionstrategies/ClassicalBlackBoxRemainderExpansionStrategy.java" />
         <option value="$PROJECT_DIR$/src/main/operations/blackbox/remainder/full/AbstractResinaRemainderBuilder.java" />
         <option value="$PROJECT_DIR$/src/main/operations/blackbox/remainder/full/ClassicalResinaRemainderBuilder.java" />
@@ -166,6 +172,13 @@
         <option value="$PROJECT_DIR$/src/main/operations/blackbox/remainder/AbstractBlackBoxRemainderShrinkingStrategy.java" />
         <option value="$PROJECT_DIR$/src/main/operations/blackbox/remainder/BlackBoxRemainder.java" />
         <option value="$PROJECT_DIR$/src/main/operations/srwpseudocontraction/RemainderBuilder.java" />
+        <option value="$PROJECT_DIR$/src/main/OntologyRepair.java" />
+        <option value="$PROJECT_DIR$/src/main/operations/contraction/KernelContraction.java" />
+        <option value="$PROJECT_DIR$/src/main/operations/SelectionFunctionFull.java" />
+        <option value="$PROJECT_DIR$/src/main/operations/srwpseudocontraction/SRWPseudoContractor.java" />
+        <option value="$PROJECT_DIR$/src/main/operations/SRWPseudoContraction.java" />
+        <option value="$PROJECT_DIR$/src/main/operations/KernelContraction.java" />
+        <option value="$PROJECT_DIR$/src/main/operations/contraction/KernelContractor.java" />
       </list>
     </option>
   </component>
@@ -181,6 +194,7 @@
     <option name="width" value="950" />
     <option name="height" value="1000" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -223,7 +237,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539473318044" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539475268175" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -241,6 +255,8 @@
       <recent name="main.operations.blackbox.kernel" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="main.operations.contraction" />
+      <recent name="main.operations" />
       <recent name="main.operations.Contraction" />
     </key>
   </component>
@@ -296,12 +312,12 @@
       <workItem from="1539114972725" duration="8754000" />
       <workItem from="1539290396479" duration="10771000" />
       <workItem from="1539355003659" duration="3314000" />
-      <workItem from="1539462382995" duration="9861000" />
+      <workItem from="1539462382995" duration="11263000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44540000" />
+    <option name="totallyTimeSpent" value="45942000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="1055" extended-state="6" />
@@ -326,7 +342,7 @@
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Java Enterprise" order="10" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="12" />
       <window_info anchor="bottom" id="Messages" order="13" weight="0.32901832" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -381,9 +397,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/operations/ui/algorithms/Revision.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/operations/ui/RevisorAbstractView.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/operations/inputHandler.java" />
     <entry file="file://$PROJECT_DIR$/src/main/operations/HumanReadableAxiomExpressionGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="589">
@@ -689,24 +702,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/operations/srwpseudocontraction/AlternativeOWLExpressionParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/operations/srwpseudocontraction/AlternativeShortFormEntityChecker.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
           <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/operations/srwpseudocontraction/HumanReadableAxiomExpressionGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -720,47 +719,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/operations/srwpseudocontraction/SelectionFunction.java">
+    <entry file="file://$PROJECT_DIR$/src/main/operations/contraction/KernelContraction.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/operations/SelectionFunctionFull.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        <state relative-caret-position="266">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/operations/srwpseudocontraction/SelectionFunctionAny.java">
+    <entry file="file://$PROJECT_DIR$/src/main/operations/SelectionFunction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        <state relative-caret-position="304">
+          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/operations/srwpseudocontraction/SelectionFunctionFull.java">
+    <entry file="file://$PROJECT_DIR$/src/main/operations/SelectionFunctionAny.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/operations/srwpseudocontraction/SRWPseudoContractor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/operations/SRWPseudoContraction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+        <state>
+          <caret column="20" lean-forward="true" selection-start-column="20" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -769,8 +754,67 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/OntologyRepair.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1140">
-          <caret line="60" column="50" selection-start-line="60" selection-start-column="50" selection-end-line="60" selection-end-column="50" />
+        <state relative-caret-position="550">
+          <caret line="62" column="54" lean-forward="true" selection-start-line="62" selection-start-column="54" selection-end-line="62" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2498#2499#0" expanded="true" />
+            <element signature="e#2525#2526#0" expanded="true" />
+            <element signature="e#2565#2566#0" expanded="true" />
+            <element signature="e#2633#2634#0" expanded="true" />
+            <element signature="e#2684#2685#0" expanded="true" />
+            <element signature="e#2746#2747#0" expanded="true" />
+            <element signature="e#2687#2688#0" expanded="true" />
+            <element signature="e#2735#2736#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/operations/AlternativeOWLExpressionParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/operations/HumanReadableAxiomExpressionGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/operations/KernelContraction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-533">
+          <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/operations/SRWPseudoContraction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-647">
+          <caret line="18" selection-start-line="18" selection-end-line="23" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/operations/srwpseudocontraction/SRWPseudoContractor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="28" selection-start-line="28" selection-end-line="42" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/operations/contraction/KernelContractor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2501">
+          <caret line="16" column="91" selection-start-line="16" selection-start-column="91" selection-end-line="16" selection-end-column="91" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
