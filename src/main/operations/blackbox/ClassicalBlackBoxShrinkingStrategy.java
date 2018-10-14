@@ -1,4 +1,4 @@
-package main.operations.blackbox.remainder.shrinkingstrategies;
+package main.operations.blackbox;
 
 import java.util.Set;
 
@@ -15,7 +15,7 @@ import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
  *
  * @author Raphael M. Cóbe (adapted by Vinícius B. Matos)
  */
-public class ClassicalBlackBoxRemainderShrinkingStrategy
+public class ClassicalBlackBoxShrinkingStrategy
         extends AbstractBlackBoxRemainderShrinkingStrategy {
 
     /**
@@ -26,8 +26,8 @@ public class ClassicalBlackBoxRemainderShrinkingStrategy
      * @param reasonerFactory
      *            a factory that consturcts the reasoner
      */
-    public ClassicalBlackBoxRemainderShrinkingStrategy(OWLOntologyManager manager,
-            OWLReasonerFactory reasonerFactory) {
+    public ClassicalBlackBoxShrinkingStrategy(OWLOntologyManager manager,
+                                              OWLReasonerFactory reasonerFactory) {
         super(manager, reasonerFactory);
     }
 

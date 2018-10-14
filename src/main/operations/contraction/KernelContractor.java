@@ -73,15 +73,15 @@ public class KernelContractor {
                             .generateExpressionForSet(
                                     inferredOntology.getAxioms()));
         }
-        // obtain remainder
-        RemainderBuilder remainderBuilder = new RemainderBuilder(
+        // obtain kernel
+        KernelBuilder kernelBuilder = new KernelBuilder(
                 OWLManager.createOWLOntologyManager(), reasonerFactory);
-        remainderBuilder.setMaxQueueSize(maxQueueSize);
-        remainderBuilder.setMaxRemainderElements(maxRemainderElements);
+        kernelBuilder.setMaxQueueSize(maxQueueSize);
+        kernelBuilder.setMaxRemainderElements(maxRemainderElements);
         Set<OWLAxiom> kb = inferredOntology.getAxioms();
         if (kb.isEmpty())
             throw new OWLException("The reasoner has failed to find the logic closure.");
-        Set<Set<OWLAxiom>> remainderSet = remainderBuilder.remainderSet(kb, sentence);
+        Set<Set<OWLAxiom>> remainderSet = kernelBuilder.kernelSet(kb, sentence);
         // apply a selection function
         Set<Set<OWLAxiom>> best = gamma.select(ontology, remainderSet);
         if (Logger.getLogger("KC").isLoggable(Level.FINER)) {

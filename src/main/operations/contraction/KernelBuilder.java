@@ -1,27 +1,27 @@
-package main.operations.srwpseudocontraction;
-
-import java.util.Set;
+package main.operations.contraction;
 
 import main.operations.blackbox.AbstractBlackBox;
-import main.operations.blackbox.remainder.BlackBoxRemainder;
+import main.operations.blackbox.kernel.BlackBoxKernel;
 import main.operations.blackbox.ClassicalBlackBoxExpansionStrategy;
-import main.operations.blackbox.remainder.full.ClassicalResinaRemainderBuilder;
-import main.operations.blackbox.remainder.shrinkingstrategies.TrivialBlackBoxRemainderShrinkingStrategy;
+import main.operations.blackbox.ClassicalBlackBoxShrinkingStrategy;
+import main.operations.blackbox.kernel.full.ClassicalResinaKernelBuilder;
 import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLOntologyChangeException;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
 
+import java.util.Set;
+
 /**
- * Provides the computation of the remainder set.
+ * Provides the computation of the kernel set.
  *
  * Basically, this class just encapsulates the real implementation.
  *
- * @author Vinícius B. Matos
+ * @author Luís F. de M. C. Silva (inspired by Vinícius B. Matos)
  *
  */
-public class RemainderBuilder {
+public class KernelBuilder {
 
     /**
      * The ontology manager.
@@ -52,19 +52,19 @@ public class RemainderBuilder {
      * @param reasonerFactory
      *            a factory that constructs the reasoner
      */
-    public RemainderBuilder(OWLOntologyManager manager, OWLReasonerFactory reasonerFactory) {
+    public KernelBuilder(OWLOntologyManager manager, OWLReasonerFactory reasonerFactory) {
         this.manager = manager;
         this.reasonerFactory = reasonerFactory;
     }
 
     /**
-     * Computes the full remainder set of an ontology in relation to a formula.
-     * The result may not be the full remainder set if the limit of the queue
-     * capacity or the limit of the computed remainder set size is too slow.
+     * Computes the kernel set of an ontology in relation to a formula.
+     * The result may not be the full kernel set if the limit of the queue
+     * capacity or the limit of the computed kernel set size is too slow.
      *
      * @param kb
      *            the belief set
-     * @param entailment
+     * @param sentence
      *            the formula that must not be implied by the elements of the
      *            remainder set
      * @return the computed remainder set
@@ -74,15 +74,15 @@ public class RemainderBuilder {
      * @throws OWLOntologyCreationException
      *             OWLOntologyCreationException
      */
-    public Set<Set<OWLAxiom>> remainderSet(Set<OWLAxiom> kb, OWLAxiom entailment)
-            throws OWLOntologyChangeException, OWLOntologyCreationException {
-        AbstractBlackBox blackbox = new BlackBoxRemainder(
+    public Set<Set<OWLAxiom>> kernelSet(Set<OWLAxiom> kb, OWLAxiom sentence) throws OWLOntologyChangeException, OWLOntologyCreationException {
+        AbstractBlackBox blackBox = new BlackBoxKernel(
                 new ClassicalBlackBoxExpansionStrategy(manager, reasonerFactory),
-                new TrivialBlackBoxRemainderShrinkingStrategy(manager, reasonerFactory));
-        ClassicalResinaRemainderBuilder rb = new ClassicalResinaRemainderBuilder(blackbox, manager, reasonerFactory);
-        rb.setMaxQueueSize(maxQueueSize);
-        rb.setMaxRemainderElements(maxRemainderElements);
-        return rb.remainderSet(kb, entailment);
+                new ClassicalBlackBoxShrinkingStrategy(manager, reasonerFactory));
+        ClassicalResinaKernelBuilder rkb = new ClassicalResinaKernelBuilder(blackBox, manager, reasonerFactory);
+        rkb.setMaxQueueSize(maxQueueSize);
+        rkb.setMaxRemainderElements(maxRemainderElements);
+        return rkb.remainderSet(kb, sentence);
+
     }
 
     /**
@@ -126,4 +126,5 @@ public class RemainderBuilder {
     public void setMaxRemainderElements(int maxRemainderElements) {
         this.maxRemainderElements = maxRemainderElements;
     }
+
 }
