@@ -81,7 +81,7 @@ public class KernelBuilder {
         ClassicalResinaKernelBuilder rkb = new ClassicalResinaKernelBuilder(blackBox, manager, reasonerFactory);
         rkb.setMaxQueueSize(maxQueueSize);
         rkb.setMaxRemainderElements(maxRemainderElements);
-        return rkb.remainderSet(kb, sentence);
+        return rkb.kernelSet(kb, sentence);
 
     }
 
