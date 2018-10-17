@@ -1,14 +1,13 @@
 package main.operations.blackbox;
 
+import java.util.Set;
+
 import main.operations.blackbox.remainder.AbstractBlackBoxRemainderShrinkingStrategy;
 import org.semanticweb.owlapi.model.OWLAxiom;
+import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
-import org.semanticweb.owlapi.reasoner.OWLReasoner;
 import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
-
-import java.util.HashSet;
-import java.util.Set;
 /**
  * Implements the classical method for the shrinking part of BlackBox algorithm.
  * Basically, the function removes aximos from the ontology until it does not
@@ -35,19 +34,14 @@ public class ClassicalBlackBoxShrinkingStrategy
     @Override
     public Set<OWLAxiom> shrink(Set<OWLAxiom> kb, OWLAxiom entailment, Set<OWLAxiom> keep)
             throws OWLOntologyCreationException {
-
-        HashSet<OWLAxiom> shrinkingResult = new HashSet<>();
-        shrinkingResult.addAll(kb);
-
-        for (OWLAxiom beta : kb) {
-            shrinkingResult.remove(beta);
-            OWLReasoner reasoner = reasonerFactory.createReasoner
-                                   (manager.createOntology(shrinkingResult));
-            if (!reasoner.isEntailed(entailment)) {
-                shrinkingResult.add(beta);
-            }
+        OWLOntology ontology = this.manager.createOntology(kb);
+        for (OWLAxiom axiom : kb) {
+            if (keep.contains(axiom))
+                continue;
+            manager.removeAxiom(ontology, axiom);
+            if (isEntailed(ontology, entailment))
+                remains.add(axiom);
         }
-
-        return shrinkingResult;
+        return ontology.getAxioms();
     }
 }

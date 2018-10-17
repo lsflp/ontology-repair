@@ -24,7 +24,12 @@ public class BlackBoxKernel extends AbstractBlackBox {
     public Set<OWLAxiom> blackBox(Set<OWLAxiom> ontology, OWLAxiom entailment,
                                   Set<OWLAxiom> initialSet)
                                   throws OWLOntologyCreationException {
-        Set<OWLAxiom> expansionResult = this.expansionStrategy.expand(ontology, entailment);
-        return this.shrinkingStrategy.shrink(expansionResult, entailment);
+        Set<OWLAxiom> contractionResult = this.shrinkingStrategy.shrink(ontology,
+                entailment, initialSet);
+        Set<OWLAxiom> remains = ((AbstractBlackBoxKernelShrinkingStrategy) this.shrinkingStrategy)
+                .getKernel();
+        ((AbstractBlackBoxKernelExpansionStrategy) this.expansionStrategy)
+                .setKernel(remains);
+        return this.expansionStrategy.expand(contractionResult, entailment);
     }
 }

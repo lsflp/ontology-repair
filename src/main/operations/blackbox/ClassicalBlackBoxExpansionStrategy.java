@@ -1,15 +1,13 @@
 package main.operations.blackbox;
 
+import java.util.Set;
+
 import main.operations.blackbox.remainder.AbstractBlackBoxRemainderExpansionStrategy;
 import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
-import org.semanticweb.owlapi.reasoner.OWLReasoner;
 import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
-
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * Implements the classical expansion part of BlackBox algorithm.
@@ -32,18 +30,13 @@ public class ClassicalBlackBoxExpansionStrategy extends AbstractBlackBoxRemainde
 
     @Override
     public Set<OWLAxiom> expand(Set<OWLAxiom> kb, OWLAxiom entailment) throws OWLOntologyCreationException {
-        Set<OWLAxiom> expansionResult = new HashSet<>();
-
-        OWLOntology ontology = manager.createOntology(expansionResult);
-        OWLReasoner reasoner = reasonerFactory.createReasoner(ontology);
-
-        for (OWLAxiom beta : kb) {
-            manager.addAxiom(ontology, beta);
-            if (reasoner.isEntailed(entailment)) {
-                break;
+        OWLOntology ontology = manager.createOntology(kb);
+        for (OWLAxiom axiom : remains) {
+            manager.addAxiom(ontology, axiom);
+            if (isEntailed(ontology, entailment)) {
+                manager.removeAxiom(ontology, axiom);
             }
         }
-
-        return expansionResult;
+        return ontology.getAxioms();
     }
 }

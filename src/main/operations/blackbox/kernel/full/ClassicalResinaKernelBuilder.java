@@ -4,12 +4,8 @@ import main.operations.blackbox.AbstractBlackBox;
 import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
-import org.semanticweb.owlapi.reasoner.OWLReasoner;
 import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
 
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Set;
 
 /**
@@ -47,42 +43,7 @@ public class ClassicalResinaKernelBuilder extends AbstractResinaKernelBuilder {
 
     @Override
     public Set<Set<OWLAxiom>> kernelSet(Set<OWLAxiom> kb, OWLAxiom entailment) throws OWLOntologyCreationException {
-        Queue<Set<OWLAxiom>> queue = new LinkedList<>();
-
-        Set<OWLAxiom> S = this.blackBox.blackBox(kb, entailment);
-
-        Set<Set<OWLAxiom>> Kernel = new HashSet<>();
-        Kernel.add(S);
-
-        for (OWLAxiom s : S) {
-            HashSet<OWLAxiom> sSet = new HashSet<>();
-            sSet.add(s);
-            queue.add(sSet);
-        }
-
-        while (!queue.isEmpty()) {
-            Set<OWLAxiom> Hn = queue.remove();
-
-            // Criando a ontologia kb \ Hn (B \ Hn)
-            Set<OWLAxiom> ontology = new HashSet<>();
-            ontology.addAll(kb);
-            ontology.removeAll(Hn);
-            OWLReasoner reasoner = reasonerFactory.createReasoner
-                                   (manager.createOntology(ontology));
-
-            if (reasoner.isEntailed(entailment)) {
-                S = this.blackBox.blackBox(ontology, entailment);
-                Kernel.add(S);
-                for (OWLAxiom s : S) {
-                    Set<OWLAxiom> tmp = new HashSet<>();
-                    tmp.addAll(Hn);
-                    tmp.add(s);
-                    queue.add(tmp);
-                }
-            }
-        }
-
-        return Kernel;
+        return null;
     }
 
     /**
