@@ -4,7 +4,7 @@ import java.util.Set;
 
 import main.operations.blackbox.AbstractBlackBox;
 import main.operations.blackbox.remainder.BlackBoxRemainder;
-import main.operations.blackbox.ClassicalBlackBoxExpansionStrategy;
+import main.operations.blackbox.remainder.expansionstrategies.ClassicalBlackBoxRemainderExpansionStrategy;
 import main.operations.blackbox.remainder.full.ClassicalResinaRemainderBuilder;
 import main.operations.blackbox.remainder.shrinkingstrategies.TrivialBlackBoxRemainderShrinkingStrategy;
 import org.semanticweb.owlapi.model.OWLAxiom;
@@ -77,7 +77,7 @@ public class RemainderBuilder {
     public Set<Set<OWLAxiom>> remainderSet(Set<OWLAxiom> kb, OWLAxiom entailment)
             throws OWLOntologyChangeException, OWLOntologyCreationException {
         AbstractBlackBox blackbox = new BlackBoxRemainder(
-                new ClassicalBlackBoxExpansionStrategy(manager, reasonerFactory),
+                new ClassicalBlackBoxRemainderExpansionStrategy(manager, reasonerFactory),
                 new TrivialBlackBoxRemainderShrinkingStrategy(manager, reasonerFactory));
         ClassicalResinaRemainderBuilder rb = new ClassicalResinaRemainderBuilder(blackbox, manager, reasonerFactory);
         rb.setMaxQueueSize(maxQueueSize);

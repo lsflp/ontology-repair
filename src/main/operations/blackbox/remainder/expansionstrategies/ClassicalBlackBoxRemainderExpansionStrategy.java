@@ -1,4 +1,4 @@
-package main.operations.blackbox;
+package main.operations.blackbox.remainder.expansionstrategies;
 
 import java.util.Set;
 
@@ -14,7 +14,7 @@ import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
  *
  * @author Raphael M. Cóbe (adapted by Vinícius B. Matos)
  */
-public class ClassicalBlackBoxExpansionStrategy extends AbstractBlackBoxRemainderExpansionStrategy {
+public class ClassicalBlackBoxRemainderExpansionStrategy extends AbstractBlackBoxRemainderExpansionStrategy {
 
     /**
      * Instantiates the class.
@@ -24,7 +24,7 @@ public class ClassicalBlackBoxExpansionStrategy extends AbstractBlackBoxRemainde
      * @param reasonerFactory
      *            a factory that constructs the reasoner
      */
-    public ClassicalBlackBoxExpansionStrategy(OWLOntologyManager manager, OWLReasonerFactory reasonerFactory) {
+    public ClassicalBlackBoxRemainderExpansionStrategy(OWLOntologyManager manager, OWLReasonerFactory reasonerFactory) {
         super(manager, reasonerFactory);
     }
 
