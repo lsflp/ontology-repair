@@ -1,8 +1,7 @@
 package main.operations.contraction;
 
-import main.operations.SelectionFunction;
 import main.operations.HumanReadableAxiomExpressionGenerator;
-import main.operations.srwpseudocontraction.RemainderBuilder;
+import main.operations.SelectionFunction;
 import org.semanticweb.HermiT.ReasonerFactory;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.*;
@@ -74,16 +73,14 @@ public class KernelContractor {
                                     inferredOntology.getAxioms()));
         }
         // obtain remainder
-        RemainderBuilder remainderBuilder = new RemainderBuilder(
+        KernelBuilder kernelBuilder = new KernelBuilder(
                 OWLManager.createOWLOntologyManager(), reasonerFactory);
-        remainderBuilder.setMaxQueueSize(maxQueueSize);
-        remainderBuilder.setMaxRemainderElements(maxRemainderElements);
         Set<OWLAxiom> kb = inferredOntology.getAxioms();
         if (kb.isEmpty())
             throw new OWLException("The reasoner has failed to find the logic closure.");
-        Set<Set<OWLAxiom>> remainderSet = remainderBuilder.remainderSet(kb, sentence);
+        Set<Set<OWLAxiom>> kernelSet = kernelBuilder.kernelSet(kb, sentence);
         // apply a selection function
-        Set<Set<OWLAxiom>> best = gamma.select(ontology, remainderSet);
+        Set<Set<OWLAxiom>> best = gamma.select(ontology, kernelSet);
         if (Logger.getLogger("KC").isLoggable(Level.FINER)) {
             StringBuilder sb = new StringBuilder(
                     "\n---------- " + (best.size()) + " SELECTED REMAINDER ELEMENT"
