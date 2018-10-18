@@ -14,11 +14,11 @@ import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
 import java.util.Set;
 
 /**
- * Provides the computation of the remainder set.
+ * Provides the computation of the kernel set.
  *
  * Basically, this class just encapsulates the real implementation.
  *
- * @author Vinícius B. Matos
+ * @author Luís F. de M. C. Silva (inspired by Luís F. de M. C. Silva)
  *
  */
 public class KernelBuilder {
