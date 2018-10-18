@@ -13,7 +13,7 @@ import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
  *
  * @author Raphael M. Cóbe (adapted by Vinícius B. Matos)
  */
-public abstract class AbstractBlackBoxShrinkingStrategy extends MatosOperatorStrategy {
+public abstract class AbstractBlackBoxShrinkingStrategy extends OperatorStrategy {
 
     /**
      *
