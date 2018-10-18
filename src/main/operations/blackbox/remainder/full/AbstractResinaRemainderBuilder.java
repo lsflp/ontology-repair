@@ -3,7 +3,7 @@ package main.operations.blackbox.remainder.full;
 import java.util.Set;
 
 import main.operations.blackbox.AbstractBlackBox;
-import main.operations.blackbox.OperatorStrategy;
+import main.operations.blackbox.MatosOperatorStrategy;
 import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
@@ -14,7 +14,7 @@ import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
  *
  * @author Raphael M. Cóbe (adapted by Vinícius B. Matos)
  */
-public abstract class AbstractResinaRemainderBuilder extends OperatorStrategy {
+public abstract class AbstractResinaRemainderBuilder extends MatosOperatorStrategy {
 
     /**
      * An implementation of the BlackBox algorithm.

@@ -12,7 +12,7 @@ import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
  *
  * @author Raphael M. Cóbe (adapted by Vinícius B. Matos)
  */
-public class OperatorStrategy {
+public class MatosOperatorStrategy {
     /**
      * The OWL ontology manager.
      */
@@ -32,7 +32,7 @@ public class OperatorStrategy {
      * @param reasonerFactory
      *            a factory that constructs the reasoner
      */
-    public OperatorStrategy(OWLOntologyManager manager, OWLReasonerFactory reasonerFactory) {
+    public MatosOperatorStrategy(OWLOntologyManager manager, OWLReasonerFactory reasonerFactory) {
         this.manager = manager;
         this.reasonerFactory = reasonerFactory;
     }
