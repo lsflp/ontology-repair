@@ -3,7 +3,6 @@ package main.operations;
 import java.util.Collections;
 import java.util.Set;
 
-import main.operations.srwpseudocontraction.AlternativeShortFormEntityChecker;
 import org.semanticweb.owlapi.expression.OWLEntityChecker;
 import org.semanticweb.owlapi.expression.OWLExpressionParser;
 import org.semanticweb.owlapi.io.OWLParserException;
