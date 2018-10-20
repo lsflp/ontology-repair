@@ -1,7 +1,6 @@
-package main.operations.contraction;
+package main.operations.blackbox.kernel;
 
 import main.operations.blackbox.AbstractBlackBox;
-import main.operations.blackbox.kernel.BlackBoxKernel;
 import main.operations.blackbox.kernel.expansionstrategies.ClassicalBlackBoxKernelExpansionStrategy;
 import main.operations.blackbox.kernel.full.ClassicalReiterKernelBuilder;
 import main.operations.blackbox.kernel.shrinkingstrategies.ClassicalBlackBoxKernelShrinkingStrategy;

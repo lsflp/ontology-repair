@@ -1,9 +1,6 @@
-package main.operations.srwpseudocontraction;
-
-import java.util.Set;
+package main.operations.blackbox.remainder;
 
 import main.operations.blackbox.AbstractBlackBox;
-import main.operations.blackbox.remainder.BlackBoxRemainder;
 import main.operations.blackbox.remainder.expansionstrategies.ClassicalBlackBoxRemainderExpansionStrategy;
 import main.operations.blackbox.remainder.full.ClassicalResinaRemainderBuilder;
 import main.operations.blackbox.remainder.shrinkingstrategies.TrivialBlackBoxRemainderShrinkingStrategy;
@@ -12,6 +9,8 @@ import org.semanticweb.owlapi.model.OWLOntologyChangeException;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
+
+import java.util.Set;
 
 /**
  * Provides the computation of the remainder set.

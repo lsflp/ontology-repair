@@ -2,6 +2,7 @@ package main.operations.srwpseudocontraction;
 
 import main.operations.auxiliars.AxiomGenerators;
 import main.operations.auxiliars.HumanReadableAxiomExpressionGenerator;
+import main.operations.blackbox.remainder.RemainderBuilder;
 import main.operations.selectionfunctions.SelectionFunction;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.*;
