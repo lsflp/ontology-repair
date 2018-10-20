@@ -48,7 +48,7 @@ public class KernelContractor {
      * @param ontology
      *            the initial ontology
      * @param sentence
-     *            the sentence to be pseudo-contracted
+     *            the sentence to be kernel contracted
      * @return the resulting belief set, not implying the sentence
      * @throws OWLException
      *             OWLException
