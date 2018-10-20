@@ -1,4 +1,4 @@
-package main.operations;
+package main.operations.selectionfunctions;
 
 import java.util.Set;
 

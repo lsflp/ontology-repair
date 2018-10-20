@@ -1,8 +1,8 @@
 package main.operations.contraction;
 
-import main.operations.AxiomGenerators;
-import main.operations.HumanReadableAxiomExpressionGenerator;
-import main.operations.SelectionFunction;
+import main.operations.auxiliars.AxiomGenerators;
+import main.operations.auxiliars.HumanReadableAxiomExpressionGenerator;
+import main.operations.selectionfunctions.SelectionFunction;
 import org.semanticweb.HermiT.ReasonerFactory;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.*;

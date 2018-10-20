@@ -1,4 +1,4 @@
-package main.operations;
+package main.operations.auxiliars;
 
 import java.util.Set;
 

@@ -1,6 +1,8 @@
 package main.operations;
 
+import main.operations.auxiliars.AlternativeOWLExpressionParser;
 import main.operations.contraction.KernelContractor;
+import main.operations.selectionfunctions.SelectionFunctionAny;
 import org.semanticweb.HermiT.ReasonerFactory;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.*;

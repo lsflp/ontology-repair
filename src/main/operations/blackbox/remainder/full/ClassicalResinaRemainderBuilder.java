@@ -8,7 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import main.operations.blackbox.AbstractBlackBox;
-import main.operations.HumanReadableAxiomExpressionGenerator;
+import main.operations.auxiliars.HumanReadableAxiomExpressionGenerator;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLOntology;

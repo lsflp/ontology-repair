@@ -7,6 +7,8 @@ import java.io.OutputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import main.operations.auxiliars.AlternativeOWLExpressionParser;
+import main.operations.selectionfunctions.SelectionFunctionFull;
 import main.operations.srwpseudocontraction.SRWPseudoContractor;
 import org.semanticweb.HermiT.ReasonerFactory;
 import org.semanticweb.owlapi.apibinding.OWLManager;

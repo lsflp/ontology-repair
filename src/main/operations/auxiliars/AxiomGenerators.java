@@ -1,4 +1,4 @@
-package main.operations;
+package main.operations.auxiliars;
 
 import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.util.*;

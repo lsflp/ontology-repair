@@ -1,20 +1,18 @@
-package main.operations;
+package main.operations.selectionfunctions;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import main.operations.SelectionFunction;
 import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLOntology;
 
 /**
- * This selection function returns a singleton, i.e., a single element of the
- * remainder set. No preference is given: the chosen element depends on the
- * internal Java data structures.
+ * This selection function returns all of the elements of the remainder set
+ * (like in full meet contraction).
  *
  * @author Vinícius B. Matos
  */
-public class SelectionFunctionAny implements SelectionFunction {
+public class SelectionFunctionFull implements SelectionFunction {
 
     @Override
     public Set<Set<OWLAxiom>> select(OWLOntology ontology, Set<Set<OWLAxiom>> setOfSets) {
@@ -23,8 +21,6 @@ public class SelectionFunctionAny implements SelectionFunction {
             result.add(ontology.getAxioms());
             return result;
         }
-        Set<Set<OWLAxiom>> set = new HashSet<Set<OWLAxiom>>();
-        set.add(setOfSets.iterator().next());
-        return set;
+        return setOfSets;
     }
 }
