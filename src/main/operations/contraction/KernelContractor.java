@@ -16,6 +16,13 @@ import java.util.logging.Logger;
 /**
  * Implements a Belief Revision operation called Contraction, using the Kernel Constructor.
  *
+ * It is defined as:
+ *
+ * K \ σ(K ⊥⊥ α),
+ *
+ * where σ is a incision function that chooses at least one element of the kernel set,
+ * denoted by ⊥⊥.
+ *
  * The resulting set must not imply the formula α.
  *
  * @author Luis F. de M. C. Silva (inspired by Vinícius B. Matos)

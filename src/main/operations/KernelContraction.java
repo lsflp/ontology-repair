@@ -57,7 +57,7 @@ public class KernelContraction {
                     String.format("Bad formula: \n\t%s\n", formulaString));
             return;
         }
-        Logger.getLogger("KC").log(Level.INFO, "Creating the pseudo-contractor...");
+        Logger.getLogger("KC").log(Level.INFO, "Creating the kernel contractor...");
         KernelContractor kernelContractor = new KernelContractor(manager,
                 new ReasonerFactory(), new SelectionFunctionAny());
         kernelContractor.setMaxRemainderElements(maxRemainderSize);
