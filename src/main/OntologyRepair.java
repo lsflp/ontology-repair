@@ -4,6 +4,7 @@ import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.ParameterException;
 import main.operations.KernelContraction;
+import main.operations.PartialMeetContraction;
 import main.operations.SRWPseudoContraction;
 
 /**
@@ -64,9 +65,19 @@ public class OntologyRepair {
                                                              maxQueueSize, maxRemainderSize);
                 kc.run();
             }
+
+            else if (relevance) {
+                PartialMeetContraction pmc = new PartialMeetContraction(inputFileName, outputFileName, formulaString,
+                                                                        maxQueueSize, maxRemainderSize);
+                pmc.run();
+            }
         }
 
-        if (srwPseudoContraction) {
+        else if (revision) {
+            System.out.println("Calling the Revision");
+        }
+
+        else if (srwPseudoContraction) {
             SRWPseudoContraction srw = new SRWPseudoContraction(inputFileName, outputFileName, formulaString,
                                                                 maxQueueSize, maxRemainderSize);
             srw.run();
