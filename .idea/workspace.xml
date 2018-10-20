@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="260a184b-143e-4c27-a9ea-3d382c4bd7e0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/operations/contraction/KernelContractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/operations/contraction/KernelContractor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/operations/contraction/PartialMeetContractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/operations/contraction/PartialMeetContractor.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,7 +36,7 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="8" />
-          <entry key="java" value="369" />
+          <entry key="java" value="371" />
           <entry key="md" value="1" />
           <entry key="sh" value="1" />
           <entry key="xml" value="1" />
@@ -44,7 +45,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="8" />
-          <entry key="JAVA" value="369" />
+          <entry key="JAVA" value="371" />
           <entry key="Markdown" value="1" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="XML" value="1" />
@@ -53,14 +54,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="142" />
-          <entry key="java" value="7037" />
+          <entry key="java" value="7043" />
           <entry key="md" value="8" />
           <entry key="sh" value="35" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="7037" />
+          <entry key="JAVA" value="7043" />
           <entry key="Markdown" value="8" />
           <entry key="PLAIN_TEXT" value="177" />
         </counts>
@@ -69,20 +70,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/OntologyRepair.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="62" column="33" lean-forward="true" selection-start-line="62" selection-start-column="33" selection-end-line="62" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/operations/PartialMeetContraction.java">
+        <entry file="file://$PROJECT_DIR$/src/main/operations/contraction/KernelContractor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="24" selection-start-column="24" selection-end-column="24" />
+            <state relative-caret-position="133">
+              <caret line="69" column="25" lean-forward="true" selection-start-line="69" selection-start-column="25" selection-end-line="69" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -90,35 +82,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/operations/contraction/PartialMeetContractor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1710">
-              <caret line="106" column="81" selection-start-line="106" selection-start-column="81" selection-end-line="106" selection-end-column="81" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/operations/SRWPseudoContraction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="20" selection-start-line="20" selection-end-line="25" selection-end-column="3" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/operations/srwpseudocontraction/SRWPseudoContractor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="893">
-              <caret line="63" column="30" selection-end-line="220" />
+            <state relative-caret-position="209">
+              <caret line="104" column="25" lean-forward="true" selection-start-line="104" selection-start-column="25" selection-end-line="104" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -164,7 +132,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/operations/Contraction/contraction/KernelContractor.java" />
         <option value="$PROJECT_DIR$/src/main/operations/Contraction/PartialMeetContractor.java" />
         <option value="$PROJECT_DIR$/src/main/operations/Contraction/Contraction.java" />
         <option value="$PROJECT_DIR$/src/main/operations/Contraction/KernelContraction.java" />
@@ -212,9 +179,10 @@
         <option value="$PROJECT_DIR$/src/main/operations/contraction/KernelBuilder.java" />
         <option value="$PROJECT_DIR$/src/main/operations/AlternativeShortFormEntityChecker.java" />
         <option value="$PROJECT_DIR$/src/main/operations/KernelContraction.java" />
-        <option value="$PROJECT_DIR$/src/main/operations/contraction/KernelContractor.java" />
         <option value="$PROJECT_DIR$/src/main/operations/srwpseudocontraction/SRWPseudoContractor.java" />
         <option value="$PROJECT_DIR$/src/main/operations/AxiomGenerators.java" />
+        <option value="$PROJECT_DIR$/src/main/operations/contraction/KernelContractor.java" />
+        <option value="$PROJECT_DIR$/src/main/operations/contraction/PartialMeetContractor.java" />
       </list>
     </option>
   </component>
@@ -371,18 +339,17 @@
       <workItem from="1539901705959" duration="1771000" />
       <workItem from="1539991717029" duration="2200000" />
       <workItem from="1540046715286" duration="7078000" />
-      <workItem from="1540077107519" duration="328000" />
+      <workItem from="1540077107519" duration="686000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61429000" />
+    <option name="totallyTimeSpent" value="61787000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="1055" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3303095" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3303095" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -392,7 +359,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32901832" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32972974" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32972974" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -676,13 +643,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/operations/contraction/KernelContractor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-931">
-          <caret line="8" column="51" lean-forward="true" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/operations/selectionfunctions/SelectionFunction.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
@@ -752,19 +712,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/operations/contraction/PartialMeetContractor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1710">
-          <caret line="106" column="81" selection-start-line="106" selection-start-column="81" selection-end-line="106" selection-end-column="81" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/operations/SRWPseudoContraction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
+        <state relative-caret-position="95">
           <caret line="20" selection-start-line="20" selection-end-line="25" selection-end-column="3" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -774,8 +724,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/operations/srwpseudocontraction/SRWPseudoContractor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="893">
+        <state relative-caret-position="347">
           <caret line="63" column="30" selection-end-line="220" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/operations/contraction/KernelContractor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="69" column="25" lean-forward="true" selection-start-line="69" selection-start-column="25" selection-end-line="69" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/operations/contraction/PartialMeetContractor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="104" column="25" lean-forward="true" selection-start-line="104" selection-start-column="25" selection-end-line="104" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

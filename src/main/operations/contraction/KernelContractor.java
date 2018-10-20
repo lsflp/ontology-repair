@@ -67,7 +67,7 @@ public class KernelContractor {
         }
         // create reasoner
         OWLReasoner reasoner = reasonerFactory.createReasoner(ontology);
-        // close under Cn*
+        // close under Cn
         OWLOntology inferredOntology = manager.createOntology();
         List<InferredAxiomGenerator<? extends OWLAxiom>> gens = AxiomGenerators.allAxiomGenerators();
         InferredOntologyGenerator ontologyGenerator = new InferredOntologyGenerator(
@@ -81,7 +81,7 @@ public class KernelContractor {
                             .generateExpressionForSet(
                                     inferredOntology.getAxioms()));
         }
-        // obtain remainder
+        // obtain kernel
         KernelBuilder kernelBuilder = new KernelBuilder(
                 OWLManager.createOWLOntologyManager(), reasonerFactory);
         Set<OWLAxiom> kb = inferredOntology.getAxioms();
