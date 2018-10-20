@@ -57,7 +57,7 @@ public class KernelContraction {
         }
         Logger.getLogger("KC").log(Level.INFO, "Creating the pseudo-contractor...");
         KernelContractor kernelContractor = new KernelContractor(manager,
-                new ReasonerFactory(), new SelectionFunctionFull());
+                new ReasonerFactory(), new SelectionFunctionAny());
         kernelContractor.setMaxRemainderElements(maxRemainderSize);
         kernelContractor.setMaxQueueSize(maxQueueSize);
         Logger.getLogger("KC").log(Level.INFO, "Executing the operation...");
