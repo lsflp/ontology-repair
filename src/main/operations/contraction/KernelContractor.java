@@ -93,41 +93,21 @@ public class KernelContractor {
             }
             Logger.getLogger("KC").log(Level.FINER, sb.toString());
         }
-        // find intersection
+
+        // removes set of axioms from the ontology
         Iterator<Set<OWLAxiom>> it = best.iterator();
-        Set<OWLAxiom> intersection = it.next();
-        while (it.hasNext()) {
-            Set<OWLAxiom> s = it.next();
-            Set<OWLAxiom> removing = new HashSet<OWLAxiom>();
-            for (OWLAxiom a : intersection) {
-                if (!s.contains(a))
-                    removing.add(a);
-            }
-            for (OWLAxiom a : removing)
-                intersection.remove(a);
-        }
-        // remove "disjoint of owl:Nothing" axioms
-        // (this prevents Protégé from showing owl:Nothing as a subclass of
-        // owl:Thing)
-        for (Iterator<OWLAxiom> i = intersection.iterator(); i.hasNext();) {
-            OWLAxiom axiom = i.next();
-            if (axiom.isOfType(AxiomType.DISJOINT_CLASSES)) {
-                for (OWLClass c : ((OWLDisjointClassesAxiom) axiom)
-                        .getClassesInSignature())
-                    if (c.isBottomEntity()) {
-                        i.remove();
-                        break;
-                    }
-            }
-        }
+        Set<OWLAxiom> toRemove = it.next();
+        Set<OWLAxiom> axioms = ontology.getAxioms();
+        axioms.removeAll(toRemove);
+
         if (Logger.getLogger("KC").isLoggable(Level.FINE)) {
             Logger.getLogger("KC").log(Level.FINE,
                     "\n---------- FINAL ONTOLOGY: \n"
                             + HumanReadableAxiomExpressionGenerator
-                            .generateExpressionForSet(intersection));
+                            .generateExpressionForSet(axioms));
         }
-        // return intersection as an ontology
-        return intersection;
+
+        return axioms;
     }
 
     /**
