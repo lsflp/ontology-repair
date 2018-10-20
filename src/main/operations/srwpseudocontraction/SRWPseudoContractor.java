@@ -1,30 +1,21 @@
 package main.operations.srwpseudocontraction;
 
-import java.util.ArrayList;
+import main.operations.AxiomGenerators;
+import main.operations.HumanReadableAxiomExpressionGenerator;
+import main.operations.SelectionFunction;
+import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.model.*;
+import org.semanticweb.owlapi.reasoner.OWLReasoner;
+import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
+import org.semanticweb.owlapi.util.InferredAxiomGenerator;
+import org.semanticweb.owlapi.util.InferredOntologyGenerator;
+
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import main.operations.HumanReadableAxiomExpressionGenerator;
-import main.operations.SelectionFunction;
-import org.semanticweb.owlapi.apibinding.OWLManager;
-import org.semanticweb.owlapi.model.AxiomType;
-import org.semanticweb.owlapi.model.OWLAxiom;
-import org.semanticweb.owlapi.model.OWLClass;
-import org.semanticweb.owlapi.model.OWLDisjointClassesAxiom;
-import org.semanticweb.owlapi.model.OWLException;
-import org.semanticweb.owlapi.model.OWLOntology;
-import org.semanticweb.owlapi.model.OWLOntologyManager;
-import org.semanticweb.owlapi.reasoner.OWLReasoner;
-import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
-import org.semanticweb.owlapi.util.InferredAxiomGenerator;
-import org.semanticweb.owlapi.util.InferredClassAssertionAxiomGenerator;
-import org.semanticweb.owlapi.util.InferredOntologyGenerator;
-import org.semanticweb.owlapi.util.InferredPropertyAssertionGenerator;
-import org.semanticweb.owlapi.util.InferredSubClassAxiomGenerator;
 
 /**
  * Implements a Belief Revision operation proposed by Santos, Ribeiro and
@@ -112,7 +103,7 @@ public class SRWPseudoContractor {
         OWLReasoner reasoner = reasonerFactory.createReasoner(ontology);
         // close under Cn*
         OWLOntology inferredOntology = manager.createOntology();
-        List<InferredAxiomGenerator<? extends OWLAxiom>> gens = allAxiomGenerators();
+        List<InferredAxiomGenerator<? extends OWLAxiom>> gens = AxiomGenerators.alternativeAllAxiomGenerators();
         InferredOntologyGenerator ontologyGenerator = new InferredOntologyGenerator(
                 reasoner, gens);
         ontologyGenerator.fillOntology(manager.getOWLDataFactory(), inferredOntology);
@@ -182,22 +173,6 @@ public class SRWPseudoContractor {
         }
         // return intersection as an ontology
         return intersection;
-    }
-
-    /**
-     * Returns the axiom generators that will be used by the reasoner to close the
-     * belief set under its consequence operator.
-     *
-     * @return the list of axiom generators
-     */
-    private static List<InferredAxiomGenerator<? extends OWLAxiom>> allAxiomGenerators() {
-        List<InferredAxiomGenerator<? extends OWLAxiom>> gens = new ArrayList<>();
-        // classes
-        gens.add(new InferredClassAssertionAxiomGenerator());
-        gens.add(new InferredSubClassAxiomGenerator());
-        // individuals
-        gens.add(new InferredPropertyAssertionGenerator());
-        return gens;
     }
 
     /**
