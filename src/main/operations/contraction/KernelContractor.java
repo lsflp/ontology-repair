@@ -31,15 +31,15 @@ import java.util.logging.Logger;
 public class KernelContractor {
     private OWLOntologyManager manager;
     private ReasonerFactory reasonerFactory;
-    private SelectionFunction gamma;
+    private SelectionFunction sigma;
 
     private Integer maxKernelElements;
     private Integer maxQueueSize;
 
-    public KernelContractor(OWLOntologyManager manager, ReasonerFactory reasonerFactory, SelectionFunction gamma) {
+    public KernelContractor(OWLOntologyManager manager, ReasonerFactory reasonerFactory, SelectionFunction sigma) {
         this.manager = manager;
         this.reasonerFactory = reasonerFactory;
-        this.gamma = gamma;
+        this.sigma = sigma;
     }
 
     /**
@@ -91,7 +91,7 @@ public class KernelContractor {
             throw new OWLException("The reasoner has failed to find the logic closure.");
         Set<Set<OWLAxiom>> kernelSet = kernelBuilder.kernelSet(kb, sentence);
         // apply a selection function
-        Set<Set<OWLAxiom>> best = gamma.select(ontology, kernelSet);
+        Set<Set<OWLAxiom>> best = sigma.select(ontology, kernelSet);
         if (Logger.getLogger("KC").isLoggable(Level.FINER)) {
             StringBuilder sb = new StringBuilder(
                     "\n---------- " + (best.size()) + " SELECTED KERNEL ELEMENT"

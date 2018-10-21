@@ -26,7 +26,6 @@ import org.semanticweb.owlapi.model.OWLOntologyStorageException;
  */
 public class SRWPseudoContraction {
 
-
     private String inputFileName;
     private String outputFileName;
     private String formulaString;
