@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="260a184b-143e-4c27-a9ea-3d382c4bd7e0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/operations/blackbox/kernel/shrinkingstrategies/RevisionBlackBoxKernelShrinkingStrategy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/OntologyRepair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/OntologyRepair.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/operations/SRWPseudoContraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/operations/SRWPseudoContraction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/operations/contraction/KernelContractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/operations/contraction/KernelContractor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/operations/blackbox/kernel/KernelBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/operations/blackbox/kernel/KernelBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/operations/blackbox/kernel/expansionstrategies/ClassicalBlackBoxKernelExpansionStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/operations/blackbox/kernel/expansionstrategies/ClassicalBlackBoxKernelExpansionStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/operations/blackbox/kernel/full/AbstractReiterKernelBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/operations/blackbox/kernel/full/AbstractReiterKernelBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/operations/blackbox/kernel/full/ClassicalReiterKernelBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/operations/blackbox/kernel/full/ClassicalReiterKernelBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/operations/blackbox/kernel/shrinkingstrategies/ClassicalBlackBoxKernelShrinkingStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/operations/blackbox/kernel/shrinkingstrategies/ClassicalBlackBoxKernelShrinkingStrategy.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,7 +43,7 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="9" />
-          <entry key="java" value="392" />
+          <entry key="java" value="439" />
           <entry key="md" value="1" />
           <entry key="sh" value="1" />
           <entry key="xml" value="1" />
@@ -48,7 +52,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="9" />
-          <entry key="JAVA" value="392" />
+          <entry key="JAVA" value="439" />
           <entry key="Markdown" value="1" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="XML" value="1" />
@@ -57,14 +61,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="142" />
-          <entry key="java" value="8090" />
+          <entry key="java" value="9813" />
           <entry key="md" value="8" />
           <entry key="sh" value="35" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="8090" />
+          <entry key="JAVA" value="9813" />
           <entry key="Markdown" value="8" />
           <entry key="PLAIN_TEXT" value="177" />
         </counts>
@@ -72,53 +76,82 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/OntologyRepair.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="608">
-              <caret line="77" column="36" selection-start-line="77" selection-start-column="36" selection-end-line="77" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/operations/srwpseudocontraction/SRWPseudoContractor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="607">
-              <caret line="176" column="5" lean-forward="true" selection-start-line="79" selection-start-column="4" selection-end-line="176" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/operations/KernelContraction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="60" column="56" lean-forward="true" selection-start-line="60" selection-start-column="56" selection-end-line="60" selection-end-column="56" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/operations/SRWPseudoContraction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="702">
-              <caret line="90" column="5" lean-forward="true" selection-start-line="28" selection-end-line="90" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/operations/revision/Revisor.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-2128">
+                  <caret line="86" column="38" selection-start-line="86" selection-start-column="38" selection-end-line="86" selection-end-column="38" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#1997#2013#0" expanded="true" />
+                    <element signature="e#3154#3164#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/operations/Revision.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="308">
+                  <caret line="47" column="69" lean-forward="true" selection-start-line="47" selection-start-column="69" selection-end-line="47" selection-end-column="69" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/operations/blackbox/kernel/RevisionKernelBuilder.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="479">
+                  <caret line="48" column="30" selection-start-line="48" selection-start-column="30" selection-end-line="48" selection-end-column="30" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#4489#4490#0" expanded="true" />
+                    <element signature="e#4515#4516#0" expanded="true" />
+                    <element signature="e#4565#4566#0" expanded="true" />
+                    <element signature="e#4595#4596#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/operations/blackbox/kernel/full/ClassicalRevisionKernelBuilder.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1710">
+                  <caret line="90" column="28" selection-start-line="90" selection-start-column="28" selection-end-line="90" selection-end-column="28" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/operations/contraction/KernelContractor.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="437">
+                  <caret line="41" column="26" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -151,6 +184,10 @@
       <find>remainder</find>
       <find>revisor</find>
       <find>SRW</find>
+      <find>kernelMipsElement</find>
+      <find>remainderSets</find>
+      <find>ct</find>
+      <find>cut</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -159,13 +196,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/operations/Contraction/Kernel.java" />
-        <option value="$PROJECT_DIR$/src/main/operations/Contraction/KernelContractor.java" />
-        <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/AbstractBlackBoxRemainderExpansionStrategy.java" />
-        <option value="$PROJECT_DIR$/src/main/operations/Contraction/ResinaKernelBuilder.java" />
-        <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/full/AbstractResinaKernelBuilder.java" />
-        <option value="$PROJECT_DIR$/src/main/operations/Contraction/KernelBuilder.java" />
-        <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/full/ClassicalResinaKernelBuilder.java" />
         <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/shrinkingstrategies/BlackBoxKernelShrinkingStrategy.java" />
         <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/expansionstrategies/BlackBoxKernelExpansionStrategy.java" />
         <option value="$PROJECT_DIR$/src/main/operations/SRWPseudoContractionStandalone.java" />
@@ -191,24 +221,31 @@
         <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/AbstractBlackBoxKernelExpansionStrategy.java" />
         <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/BlackBoxKernel.java" />
         <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/shrinkingstrategies/ClassicalBlackBoxKernelContractionStrategy.java" />
-        <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/shrinkingstrategies/ClassicalBlackBoxKernelShrinkingStrategy.java" />
-        <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/expansionstrategies/ClassicalBlackBoxKernelExpansionStrategy.java" />
         <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/full/ReiterKernelBuilder.java" />
-        <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/full/AbstractReiterKernelBuilder.java" />
         <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/full/OptimizedReiterKernelBuilder.java" />
         <option value="$PROJECT_DIR$/src/main/operations/contraction/KernelBuilder.java" />
         <option value="$PROJECT_DIR$/src/main/operations/AlternativeShortFormEntityChecker.java" />
         <option value="$PROJECT_DIR$/src/main/operations/srwpseudocontraction/SRWPseudoContractor.java" />
         <option value="$PROJECT_DIR$/src/main/operations/AxiomGenerators.java" />
         <option value="$PROJECT_DIR$/src/main/operations/contraction/PartialMeetContractor.java" />
-        <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/KernelBuilder.java" />
-        <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/full/ClassicalReiterKernelBuilder.java" />
         <option value="$PROJECT_DIR$/src/main/operations/KernelContraction.java" />
         <option value="$PROJECT_DIR$/src/main/OntologyRepair.java" />
         <option value="$PROJECT_DIR$/src/main/operations/revision/Revision.java" />
         <option value="$PROJECT_DIR$/src/main/operations/SRWPseudoContraction.java" />
         <option value="$PROJECT_DIR$/src/main/operations/contraction/KernelContractor.java" />
         <option value="$PROJECT_DIR$/src/main/operations/Revision.java" />
+        <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/expansionstrategies/ClassicalBlackBoxKernelExpansionStrategy.java" />
+        <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/shrinkingstrategies/ClassicalBlackBoxKernelShrinkingStrategy.java" />
+        <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/expansionstrategies/RevisionBlackBoxKernelExpansionStrategy.java" />
+        <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/shrinkingstrategies/RevisionBlackBoxKernelShrinkingStrategy.java" />
+        <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/RevisionBlackBoxKernel.java" />
+        <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/KernelBuilder.java" />
+        <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/full/RevisionKerbelBuilder.java" />
+        <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/full/AbstractReiterKernelBuilder.java" />
+        <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/full/ClassicalReiterKernelBuilder.java" />
+        <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/full/RevisionKernelBuilder.java" />
+        <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/RevisionKernelBuilder.java" />
+        <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/full/ClassicalRevisionKernelBuilder.java" />
         <option value="$PROJECT_DIR$/src/main/operations/revision/Revisor.java" />
       </list>
     </option>
@@ -270,6 +307,54 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="operations" type="462c0819:PsiDirectoryNode" />
+              <item name="blackbox" type="462c0819:PsiDirectoryNode" />
+              <item name="kernel" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ontologyrepair" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ontology-repair" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="operations" type="462c0819:PsiDirectoryNode" />
+              <item name="blackbox" type="462c0819:PsiDirectoryNode" />
+              <item name="kernel" type="462c0819:PsiDirectoryNode" />
+              <item name="expansionstrategies" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ontologyrepair" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ontology-repair" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="operations" type="462c0819:PsiDirectoryNode" />
+              <item name="blackbox" type="462c0819:PsiDirectoryNode" />
+              <item name="kernel" type="462c0819:PsiDirectoryNode" />
+              <item name="full" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ontologyrepair" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ontology-repair" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="operations" type="462c0819:PsiDirectoryNode" />
+              <item name="blackbox" type="462c0819:PsiDirectoryNode" />
+              <item name="kernel" type="462c0819:PsiDirectoryNode" />
+              <item name="shrinkingstrategies" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ontologyrepair" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ontology-repair" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="operations" type="462c0819:PsiDirectoryNode" />
+              <item name="blackbox" type="462c0819:PsiDirectoryNode" />
+              <item name="remainder" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ontologyrepair" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ontology-repair" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="operations" type="462c0819:PsiDirectoryNode" />
               <item name="revision" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -291,7 +376,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540076992378" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540165390631" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -376,17 +461,18 @@
       <workItem from="1539991717029" duration="2200000" />
       <workItem from="1540046715286" duration="7078000" />
       <workItem from="1540077107519" duration="3025000" />
-      <workItem from="1540127458682" duration="6186000" />
+      <workItem from="1540127458682" duration="15780000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70312000" />
+    <option name="totallyTimeSpent" value="79906000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="1055" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3340448" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.26840982" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -490,43 +576,10 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/operations/blackbox/remainder/shrinkingstrategies/SlidingWindowBlackBoxRemainderShrinkingStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/operations/blackbox/remainder/shrinkingstrategies/TrivialBlackBoxRemainderShrinkingStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="29" column="7" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/operations/contraction/KernelContraction.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/operations/srwpseudocontraction/RemainderBuilder.java" />
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="304">
-            <caret line="16" column="9" lean-forward="true" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/operations/blackbox/BlackBox.java" />
     <entry file="file://$PROJECT_DIR$/src/main/operations/blackbox/MatosOperatorStrategy.java" />
     <entry file="file://$PROJECT_DIR$/src/main/operations/blackbox/BlackBoxExpansionStrategy.java" />
     <entry file="file://$PROJECT_DIR$/src/main/operations/blackbox/BlackBoxContractionStrategy.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/operations/blackbox/remainder/expansionstrategies/ClassicalBlackBoxRemainderExpansionStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="107" selection-start-line="16" selection-start-column="65" selection-end-line="16" selection-end-column="107" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/operations/blackbox/AbstractBlackBoxExpansionStrategy.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
@@ -545,13 +598,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-742">
           <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/operations/blackbox/remainder/BlackBoxRemainder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="3" lean-forward="true" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="50" />
         </state>
       </provider>
     </entry>
@@ -605,31 +651,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/operations/blackbox/kernel/AbstractBlackBoxKernelExpansionStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/operations/blackbox/kernel/shrinkingstrategies/ClassicalBlackBoxKernelShrinkingStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/operations/blackbox/kernel/full/OptimizedReiterKernelBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-608">
           <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/operations/blackbox/kernel/expansionstrategies/ClassicalBlackBoxKernelExpansionStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -695,16 +720,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/operations/blackbox/kernel/BlackBoxKernel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-54">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/operations/blackbox/OperatorStrategy.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
@@ -719,13 +734,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/operations/blackbox/kernel/full/AbstractReiterKernelBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="912">
-          <caret line="55" column="10" lean-forward="true" selection-start-line="55" selection-start-column="10" selection-end-line="55" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/operations/contraction/PartialMeetContractor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="670">
@@ -733,27 +741,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/operations/blackbox/remainder/RemainderBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="721">
-          <caret line="126" column="5" lean-forward="true" selection-start-line="86" selection-start-column="4" selection-end-line="126" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/operations/blackbox/kernel/full/ClassicalReiterKernelBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="42" column="20" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/operations/blackbox/kernel/KernelBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="30" column="45" selection-start-line="30" selection-start-column="45" selection-end-line="30" selection-end-column="45" />
         </state>
       </provider>
     </entry>
@@ -784,26 +771,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/operations/contraction/KernelContractor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="41" column="26" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/operations/srwpseudocontraction/SRWPseudoContractor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="607">
-          <caret line="176" column="5" lean-forward="true" selection-start-line="79" selection-start-column="4" selection-end-line="176" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/net/sourceforge/owlapi/owlapi-distribution/4.1.3/owlapi-distribution-4.1.3.jar!/org/semanticweb/owlapi/model/OWLAxiom.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="746">
@@ -811,32 +778,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/operations/revision/Revisor.java">
+    <entry file="file://$PROJECT_DIR$/src/main/operations/blackbox/remainder/expansionstrategies/ClassicalBlackBoxRemainderExpansionStrategy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5491">
-          <caret line="289" column="5" lean-forward="true" selection-start-line="244" selection-start-column="4" selection-end-line="289" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1763#1764#0" expanded="true" />
-            <element signature="e#1801#1802#0" expanded="true" />
-            <element signature="e#1997#2013#0" expanded="true" />
-            <element signature="e#2431#2448#0" expanded="true" />
-            <element signature="e#2513#2530#0" expanded="true" />
-            <element signature="e#3154#3164#0" expanded="true" />
-            <element signature="e#6284#6301#0" expanded="true" />
-            <element signature="e#6588#6603#0" expanded="true" />
-            <element signature="e#7379#7389#0" expanded="true" />
-            <element signature="e#7527#7537#0" expanded="true" />
-            <element signature="e#8427#8437#0" expanded="true" />
-            <element signature="e#9363#9373#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="323">
+          <caret line="24" column="18" lean-forward="true" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="56" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/operations/Revision.java">
+    <entry file="file://$PROJECT_DIR$/src/main/operations/blackbox/kernel/AbstractBlackBoxKernelExpansionStrategy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="58" column="9" lean-forward="true" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
+        <state relative-caret-position="190">
+          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/operations/blackbox/kernel/shrinkingstrategies/ClassicalBlackBoxKernelShrinkingStrategy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="24" column="56" lean-forward="true" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/operations/blackbox/kernel/expansionstrategies/RevisionBlackBoxKernelExpansionStrategy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="26" column="84" lean-forward="true" selection-start-line="25" selection-start-column="8" selection-end-line="26" selection-end-column="84" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -845,8 +811,153 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/OntologyRepair.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="77" column="36" selection-start-line="77" selection-start-column="36" selection-end-line="77" selection-end-column="36" />
+        <state relative-caret-position="-57">
+          <caret line="54" column="60" lean-forward="true" selection-start-line="54" selection-start-column="60" selection-end-line="54" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/operations/blackbox/kernel/BlackBoxKernel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/operations/blackbox/kernel/shrinkingstrategies/RevisionBlackBoxKernelShrinkingStrategy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="28" column="48" selection-start-line="28" selection-start-column="46" selection-end-line="28" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/operations/blackbox/kernel/RevisionBlackBoxKernel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/operations/blackbox/kernel/expansionstrategies/ClassicalBlackBoxKernelExpansionStrategy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="589">
+          <caret line="39" column="35" lean-forward="true" selection-start-line="39" selection-start-column="35" selection-end-line="39" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/operations/blackbox/remainder/RemainderBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2052">
+          <caret line="126" column="5" lean-forward="true" selection-start-line="86" selection-start-column="4" selection-end-line="126" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/operations/blackbox/remainder/BlackBoxRemainder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="11" column="3" lean-forward="true" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/operations/blackbox/kernel/full/AbstractReiterKernelBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="27" column="49" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/operations/blackbox/kernel/full/ClassicalReiterKernelBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="44" column="11" selection-start-line="44" selection-start-column="11" selection-end-line="44" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3821#3822#0" expanded="true" />
+            <element signature="e#3838#3839#0" expanded="true" />
+            <element signature="e#3885#3886#0" expanded="true" />
+            <element signature="e#3906#3907#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/operations/blackbox/kernel/KernelBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="80" column="57" selection-start-line="80" selection-start-column="57" selection-end-line="80" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/operations/blackbox/kernel/RevisionKernelBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="479">
+          <caret line="48" column="30" selection-start-line="48" selection-start-column="30" selection-end-line="48" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4489#4490#0" expanded="true" />
+            <element signature="e#4515#4516#0" expanded="true" />
+            <element signature="e#4565#4566#0" expanded="true" />
+            <element signature="e#4595#4596#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/operations/blackbox/kernel/full/ClassicalRevisionKernelBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1710">
+          <caret line="90" column="28" selection-start-line="90" selection-start-column="28" selection-end-line="90" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/operations/srwpseudocontraction/SRWPseudoContractor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1576">
+          <caret line="176" column="5" lean-forward="true" selection-start-line="79" selection-start-column="4" selection-end-line="176" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/operations/Revision.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="47" column="69" lean-forward="true" selection-start-line="47" selection-start-column="69" selection-end-line="47" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/operations/contraction/KernelContractor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="41" column="26" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/operations/revision/Revisor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2128">
+          <caret line="86" column="38" selection-start-line="86" selection-start-column="38" selection-end-line="86" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1997#2013#0" expanded="true" />
+            <element signature="e#3154#3164#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

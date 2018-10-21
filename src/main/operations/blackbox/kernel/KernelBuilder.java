@@ -17,7 +17,7 @@ import java.util.Set;
  *
  * Basically, this class just encapsulates the real implementation.
  *
- * @author Luís F. de M. C. Silva (inspired by Luís F. de M. C. Silva)
+ * @author Luís F. de M. C. Silva (inspired by Vinícius B. Matos)
  *
  */
 public class KernelBuilder {
