@@ -30,6 +30,8 @@ public class ClassicalReiterKernelBuilder extends AbstractReiterKernelBuilder {
 	 */
 	private int maxKernelElements = Integer.MAX_VALUE;
 
+	private Set<Set<OWLAxiom>> cut = new HashSet<>();
+
 	/**
 	 * Instantiates the class.
 	 *
@@ -47,12 +49,8 @@ public class ClassicalReiterKernelBuilder extends AbstractReiterKernelBuilder {
 	public Set<Set<OWLAxiom>> kernelSet(Set<OWLAxiom> kb, OWLAxiom entailment) throws OWLOntologyCreationException {
 		Set<Set<OWLAxiom>> kernelSet = new HashSet<>();
 
-		Set<Set<OWLAxiom>> cut = new HashSet<>();
-
 		Queue<Set<OWLAxiom>> queue = new LinkedList<>();
-		Set<OWLAxiom> element;
-		Set<OWLAxiom> candidate;
-		Set<OWLAxiom> hn;
+		Set<OWLAxiom> element, candidate, hn;
 
 		OWLOntology ontology = manager.createOntology(kb);
 
@@ -144,4 +142,11 @@ public class ClassicalReiterKernelBuilder extends AbstractReiterKernelBuilder {
 		this.maxKernelElements = maxKernelElements;
 	}
 
+	public Set<Set<OWLAxiom>> getCut() {
+		return cut;
+	}
+
+	public void setCut(Set<Set<OWLAxiom>> cut) {
+		this.cut = cut;
+	}
 }
