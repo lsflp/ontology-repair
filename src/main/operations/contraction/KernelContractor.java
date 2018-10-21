@@ -33,7 +33,7 @@ public class KernelContractor {
     private ReasonerFactory reasonerFactory;
     private SelectionFunction gamma;
 
-    private Integer maxRemainderElements;
+    private Integer maxKernelElements;
     private Integer maxQueueSize;
 
     public KernelContractor(OWLOntologyManager manager, ReasonerFactory reasonerFactory, SelectionFunction gamma) {
@@ -84,6 +84,8 @@ public class KernelContractor {
         // obtain kernel
         KernelBuilder kernelBuilder = new KernelBuilder(
                 OWLManager.createOWLOntologyManager(), reasonerFactory);
+        kernelBuilder.setMaxQueueSize(maxQueueSize);
+        kernelBuilder.setMaxKernelElements(maxKernelElements);
         Set<OWLAxiom> kb = inferredOntology.getAxioms();
         if (kb.isEmpty())
             throw new OWLException("The reasoner has failed to find the logic closure.");
@@ -92,7 +94,7 @@ public class KernelContractor {
         Set<Set<OWLAxiom>> best = gamma.select(ontology, kernelSet);
         if (Logger.getLogger("KC").isLoggable(Level.FINER)) {
             StringBuilder sb = new StringBuilder(
-                    "\n---------- " + (best.size()) + " SELECTED REMAINDER ELEMENT"
+                    "\n---------- " + (best.size()) + " SELECTED KERNEL ELEMENT"
                             + (best.size() != 1 ? "S" : "") + ": \n");
             int i = 0;
             for (Set<OWLAxiom> s : best) {
@@ -142,23 +144,23 @@ public class KernelContractor {
 
     /**
      *
-     * Gets the maximum number of elements in the computed remainder set.
+     * Gets the maximum number of elements in the computed kernel set.
      *
-     * @return the maximum size of the computed remainder set
+     * @return the maximum size of the computed kernel set
      */
-    public int getMaxRemainderElements() {
-        return maxRemainderElements;
+    public int getMaxKernelElements() {
+        return maxKernelElements;
     }
 
     /**
      *
-     * Sets the maximum number of elements in the computed remainder set.
+     * Sets the maximum number of elements in the computed kernel set.
      *
-     * @param maxRemainderElements
-     *            the maximum size of the computed remainder set
+     * @param maxKernelElements
+     *            the maximum size of the computed kernel set
      */
-    public void setMaxRemainderElements(int maxRemainderElements) {
-        this.maxRemainderElements = maxRemainderElements;
+    public void setMaxKernelElements(int maxKernelElements) {
+        this.maxKernelElements = maxKernelElements;
     }
 
 }

@@ -28,7 +28,7 @@ public class KernelBuilder {
     private OWLOntologyManager manager;
 
     /**
-     * The factory that constructs the remainder.
+     * The factory that constructs the kernel.
      */
     private OWLReasonerFactory reasonerFactory;
 
@@ -38,10 +38,10 @@ public class KernelBuilder {
     private int maxQueueSize = Integer.MAX_VALUE;
 
     /**
-     * The maximum number of elements of the remainder set that will be
+     * The maximum number of elements of the kernel set that will be
      * computed.
      */
-    private int maxRemainderElements = Integer.MAX_VALUE;
+    private int maxKernelElements = Integer.MAX_VALUE;
 
     /**
      * Instantiates the class.
@@ -57,16 +57,16 @@ public class KernelBuilder {
     }
 
     /**
-     * Computes the full remainder set of an ontology in relation to a formula.
-     * The result may not be the full remainder set if the limit of the queue
-     * capacity or the limit of the computed remainder set size is too slow.
+     * Computes the kernel set of an ontology in relation to a formula.
+     * The result may not be the kernel set if the limit of the queue
+     * capacity or the limit of the computed kernel set size is too slow.
      *
      * @param kb
      *            the belief set
      * @param entailment
      *            the formula that must not be implied by the elements of the
-     *            remainder set
-     * @return the computed remainder set
+     *            kernel set
+     * @return the computed kernel set
      * @throws OWLOntologyChangeException
      *             OWLOntologyChangeException
      *
@@ -79,7 +79,51 @@ public class KernelBuilder {
                 new ClassicalBlackBoxKernelExpansionStrategy(manager, reasonerFactory),
                 new ClassicalBlackBoxKernelShrinkingStrategy(manager, reasonerFactory));
         ClassicalReiterKernelBuilder kn = new ClassicalReiterKernelBuilder(blackbox, manager, reasonerFactory);
+        kn.setMaxQueueSize(maxQueueSize);
+        kn.setMaxKernelElements(maxKernelElements);
         return kn.kernelSet(kb, entailment);
+    }
+
+    /**
+     * Sets the capacity of the queue used by the algorithm.
+     *
+     * @param maxQueueSize
+     *            the limit of the size of the queue
+     *
+     */
+    public void setMaxQueueSize(int maxQueueSize) {
+        this.maxQueueSize = maxQueueSize;
+    }
+
+    /**
+     * Gets the capacity of the queue used by the algorithm.
+     *
+     * @return the limit of the size of the queue
+     *
+     */
+    public int getMaxQueueSize() {
+        return maxQueueSize;
+    }
+
+    /**
+     *
+     * Gets the maximum number of elements in the computed kernel set.
+     *
+     * @return the maximum size of the computed kernel set
+     */
+    public int getMaxKernelElements() {
+        return maxKernelElements;
+    }
+
+    /**
+     *
+     * Sets the maximum number of elements in the computed kernel set.
+     *
+     * @param maxKernelElements
+     *            the maximum size of the computed kernel set
+     */
+    public void setMaxKernelElements(int maxKernelElements) {
+        this.maxKernelElements = maxKernelElements;
     }
 
 }

@@ -32,8 +32,8 @@ public class OntologyRepair {
     private Integer maxQueueSize = Integer.MAX_VALUE;
 
     @Parameter(names = { "--remainder-limit" },
-               description = "Maximum number of elements in the computer remainder set")
-    private Integer maxRemainderSize = Integer.MAX_VALUE;
+               description = "Maximum number of elements in the computer kernel or remainder set")
+    private Integer maxSetSize = Integer.MAX_VALUE;
 
     @Parameter(names = { "--core-retainment" },
             description = "Minimality postulate used for the kernel contraction")
@@ -62,13 +62,13 @@ public class OntologyRepair {
         if (canPerformContraction()) {
             if (coreRetainment) {
                 KernelContraction kc = new KernelContraction(inputFileName, outputFileName, formulaString,
-                                                             maxQueueSize, maxRemainderSize);
+                                                             maxQueueSize, maxSetSize);
                 kc.run();
             }
 
             else if (relevance) {
                 PartialMeetContraction pmc = new PartialMeetContraction(inputFileName, outputFileName, formulaString,
-                                                                        maxQueueSize, maxRemainderSize);
+                                                                        maxQueueSize, maxSetSize);
                 pmc.run();
             }
         }
@@ -79,7 +79,7 @@ public class OntologyRepair {
 
         else if (srwPseudoContraction) {
             SRWPseudoContraction srw = new SRWPseudoContraction(inputFileName, outputFileName, formulaString,
-                                                                maxQueueSize, maxRemainderSize);
+                                                                maxQueueSize, maxSetSize);
             srw.run();
         }
     }

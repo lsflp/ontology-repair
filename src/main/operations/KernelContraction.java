@@ -25,15 +25,15 @@ public class KernelContraction {
     private String inputFileName;
     private String outputFileName;
     private String formulaString;
-    private Integer maxRemainderSize;
+    private Integer maxKernelSize;
     private Integer maxQueueSize;
 
     public KernelContraction(String inputFileName, String outputFileName, String formulaString,
-                             Integer maxQueueSize, Integer maxRemainderSize) {
+                             Integer maxQueueSize, Integer maxKernelSize) {
         this.inputFileName = inputFileName;
         this.outputFileName = outputFileName;
         this.formulaString = formulaString;
-        this.maxRemainderSize = maxRemainderSize;
+        this.maxKernelSize = maxKernelSize;
         this.maxQueueSize = maxQueueSize;
     }
 
@@ -60,7 +60,7 @@ public class KernelContraction {
         Logger.getLogger("KC").log(Level.INFO, "Creating the kernel contractor...");
         KernelContractor kernelContractor = new KernelContractor(manager,
                 new ReasonerFactory(), new SelectionFunctionAny());
-        kernelContractor.setMaxRemainderElements(maxRemainderSize);
+        kernelContractor.setMaxKernelElements(maxKernelSize);
         kernelContractor.setMaxQueueSize(maxQueueSize);
         Logger.getLogger("KC").log(Level.INFO, "Executing the operation...");
         OWLOntology inferredOntology;

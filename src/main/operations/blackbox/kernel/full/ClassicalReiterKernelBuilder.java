@@ -21,6 +21,16 @@ import java.util.Set;
 public class ClassicalReiterKernelBuilder extends AbstractReiterKernelBuilder {
 
 	/**
+	 * The capacity of the queue used by this algorithm.
+	 */
+	private int maxQueueSize = Integer.MAX_VALUE;
+
+	/**
+	 * The maximum number of elements of the kernel set that will be computed.
+	 */
+	private int maxKernelElements = Integer.MAX_VALUE;
+
+	/**
 	 * Instantiates the class.
 	 *
 	 * @param blackBox
@@ -35,11 +45,11 @@ public class ClassicalReiterKernelBuilder extends AbstractReiterKernelBuilder {
 	}
 
 	public Set<Set<OWLAxiom>> kernelSet(Set<OWLAxiom> kb, OWLAxiom entailment) throws OWLOntologyCreationException {
-		Set<Set<OWLAxiom>> kernel = new HashSet<Set<OWLAxiom>>();
+		Set<Set<OWLAxiom>> kernelSet = new HashSet<>();
 
-		Set<Set<OWLAxiom>> cut = new HashSet<Set<OWLAxiom>>();
+		Set<Set<OWLAxiom>> cut = new HashSet<>();
 
-		Queue<Set<OWLAxiom>> queue = new LinkedList<Set<OWLAxiom>>();
+		Queue<Set<OWLAxiom>> queue = new LinkedList<>();
 		Set<OWLAxiom> element;
 		Set<OWLAxiom> candidate;
 		Set<OWLAxiom> hn;
@@ -47,15 +57,22 @@ public class ClassicalReiterKernelBuilder extends AbstractReiterKernelBuilder {
 		OWLOntology ontology = manager.createOntology(kb);
 
 		if (!isEntailed(ontology, entailment)) {
-			return kernel;
+			return kernelSet;
 		}
+
 		element = this.blackBox.blackBox(ontology.getAxioms(), entailment);
-		kernel.add(element);
+		kernelSet.add(element);
 		for (OWLAxiom axiom : element) {
-			Set<OWLAxiom> set = new HashSet<OWLAxiom>();
+			if (queue.size() >= maxQueueSize)
+				break;
+			Set<OWLAxiom> set = new HashSet<>();
 			set.add(axiom);
 			queue.add(set);
 		}
+
+		if (kernelSet.size() >= maxKernelElements)
+			return kernelSet;
+
 		// Reiter's algorithm
 		while (!queue.isEmpty()) {
 			hn = queue.remove();
@@ -64,9 +81,11 @@ public class ClassicalReiterKernelBuilder extends AbstractReiterKernelBuilder {
 			}
 			if (isEntailed(ontology, entailment)) {
 				candidate = blackBox.blackBox(ontology.getAxioms(), entailment);
-				kernel.add(candidate);
+				kernelSet.add(candidate);
 				for (OWLAxiom axiom : candidate) {
-					Set<OWLAxiom> set2 = new HashSet<OWLAxiom>();
+					if (queue.size() >= maxQueueSize)
+						break;
+					Set<OWLAxiom> set2 = new HashSet<>();
 					set2.addAll(hn);
 					set2.add(axiom);
 					queue.add(set2);
@@ -80,7 +99,49 @@ public class ClassicalReiterKernelBuilder extends AbstractReiterKernelBuilder {
 				manager.addAxiom(ontology, axiom);
 			}
 		}
-		return kernel;
+		return kernelSet;
+	}
+
+	/**
+	 * Sets the capacity of the queue used by the algorithm.
+	 *
+	 * @param maxQueueSize
+	 *            the limit of the size of the queue
+	 *
+	 */
+	public void setMaxQueueSize(int maxQueueSize) {
+		this.maxQueueSize = maxQueueSize;
+	}
+
+	/**
+	 * Gets the capacity of the queue used by the algorithm.
+	 *
+	 * @return the limit of the size of the queue
+	 *
+	 */
+	public int getMaxQueueSize() {
+		return maxQueueSize;
+	}
+
+	/**
+	 *
+	 * Gets the maximum number of elements in the computed kernel set.
+	 *
+	 * @return the maximum size of the computed kernel set
+	 */
+	public int getMaxKernelElements() {
+		return maxKernelElements;
+	}
+
+	/**
+	 *
+	 * Sets the maximum number of elements in the computed kernel set.
+	 *
+	 * @param maxKernelElements
+	 *            the maximum size of the computed kernel set
+	 */
+	public void setMaxKernelElements(int maxKernelElements) {
+		this.maxKernelElements = maxKernelElements;
 	}
 
 }
