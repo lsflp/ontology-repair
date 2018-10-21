@@ -37,7 +37,7 @@ public class ClassicalBlackBoxKernelExpansionStrategy extends AbstractBlackBoxKe
 			toReturn = kb;
 		}
 		else {
-			toReturn = Collections.<OWLAxiom>emptySet();
+			toReturn = Collections.emptySet();
 		}
 		return toReturn;
 	}
