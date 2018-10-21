@@ -6,6 +6,7 @@ import com.beust.jcommander.ParameterException;
 import main.operations.KernelContraction;
 import main.operations.PartialMeetContraction;
 import main.operations.SRWPseudoContraction;
+import main.operations.Revision;
 
 /**
  * Command-line interface of the plug-in.
@@ -61,9 +62,9 @@ public class OntologyRepair {
     private void run() {
         if (canPerformContraction()) {
             if (coreRetainment) {
-                KernelContraction kc = new KernelContraction(inputFileName, outputFileName, formulaString,
+                KernelContraction knc = new KernelContraction(inputFileName, outputFileName, formulaString,
                                                              maxQueueSize, maxSetSize);
-                kc.run();
+                knc.run();
             }
 
             else if (relevance) {
@@ -74,7 +75,9 @@ public class OntologyRepair {
         }
 
         else if (revision) {
-            System.out.println("Calling the Revision");
+            Revision rev = new Revision(inputFileName, outputFileName, formulaString,
+                                        maxQueueSize, maxSetSize);
+            rev.run();
         }
 
         else if (srwPseudoContraction) {
