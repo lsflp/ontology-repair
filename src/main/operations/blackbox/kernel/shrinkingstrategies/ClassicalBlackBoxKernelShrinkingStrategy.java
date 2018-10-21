@@ -19,8 +19,10 @@ public class ClassicalBlackBoxKernelShrinkingStrategy extends AbstractBlackBoxKe
 	/**
 	 * Creates a variation of the shrinking part of BlackBox algorithm.
 	 *
-	 * @param manager         the OWL ontology manager
+	 * @param manager
+	 *            the OWL ontology manager
 	 * @param reasonerFactory
+	 *            a factory that constructs the reasoner
 	 */
 	public ClassicalBlackBoxKernelShrinkingStrategy(OWLOntologyManager manager, OWLReasonerFactory reasonerFactory) {
 		super(manager, reasonerFactory);
