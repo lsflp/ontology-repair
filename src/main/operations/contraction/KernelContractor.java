@@ -76,7 +76,7 @@ public class KernelContractor {
         manager.addAxioms(inferredOntology, ontology.getAxioms()); // keep asserted axioms
         if (Logger.getLogger("KC").isLoggable(Level.FINE)) {
             Logger.getLogger("KC").log(Level.FINE,
-                    "\n---------- ONTOLOGY CLOSED UNDER Cn*: \n"
+                    "\n---------- ONTOLOGY CLOSED UNDER Cn: \n"
                             + HumanReadableAxiomExpressionGenerator
                             .generateExpressionForSet(
                                     inferredOntology.getAxioms()));

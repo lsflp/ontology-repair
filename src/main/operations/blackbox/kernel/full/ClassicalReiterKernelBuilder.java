@@ -46,6 +46,12 @@ public class ClassicalReiterKernelBuilder extends AbstractReiterKernelBuilder {
 		super(blackBox, manager, reasonerFactory);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 *
+	 * The result may not be the full kernel set if the limit of the queue
+	 * capacity or the limit of the computed kernel set size is too slow.
+	 */
 	public Set<Set<OWLAxiom>> kernelSet(Set<OWLAxiom> kb, OWLAxiom entailment) throws OWLOntologyCreationException {
 		Set<Set<OWLAxiom>> kernelSet = new HashSet<>();
 
@@ -142,11 +148,13 @@ public class ClassicalReiterKernelBuilder extends AbstractReiterKernelBuilder {
 		this.maxKernelElements = maxKernelElements;
 	}
 
+	/**
+	 *
+	 * Gets a cut generated during the execution of kernelSet.
+	 *
+	 * @return cut
+	 */
 	public Set<Set<OWLAxiom>> getCut() {
 		return cut;
-	}
-
-	public void setCut(Set<Set<OWLAxiom>> cut) {
-		this.cut = cut;
 	}
 }

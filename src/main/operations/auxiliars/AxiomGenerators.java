@@ -16,7 +16,7 @@ public class AxiomGenerators {
 
     /**
      * Returns the axiom generators that will be used by the reasoner to close the
-     * belief set under a alternative (tarskian) consequence operator.
+     * belief set under a alternative (tarskian) consequence operator, defined as Cn*.
      *
      * @return the list of axiom generators
      */
@@ -32,7 +32,7 @@ public class AxiomGenerators {
 
     /**
      * Returns the axiom generators that will be used by the reasoner to close the
-     * belief set under its consequence operator.
+     * belief set under its consequence operator, defined as Cn.
      *
      * @return the list of axiom generators
      */

@@ -33,7 +33,7 @@ public class ClassicalBlackBoxKernelExpansionStrategy extends AbstractBlackBoxKe
 	public Set<OWLAxiom> expand(Set<OWLAxiom> kb, OWLAxiom entailment) throws OWLOntologyCreationException {
 		Set<OWLAxiom> toReturn;
 		OWLOntology ontology = manager.createOntology(kb);
-		if(isEntailed(ontology, entailment)) {
+		if (isEntailed(ontology, entailment)) {
 			toReturn = kb;
 		}
 		else {

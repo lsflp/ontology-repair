@@ -1,13 +1,12 @@
 package main.operations.blackbox.remainder.shrinkingstrategies;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import main.operations.blackbox.remainder.AbstractBlackBoxRemainderShrinkingStrategy;
 import org.semanticweb.owlapi.model.OWLAxiom;
-import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
+
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Implements the trivial strategy for shrinking in BlackBox algorithm.
@@ -28,11 +27,10 @@ public class TrivialBlackBoxRemainderShrinkingStrategy extends AbstractBlackBoxR
     }
 
     @Override
-    public Set<OWLAxiom> shrink(Set<OWLAxiom> ontology, OWLAxiom entailment, Set<OWLAxiom> keep)
-            throws OWLOntologyCreationException {
-        Set<OWLAxiom> rem = new HashSet<OWLAxiom>(ontology);
+    public Set<OWLAxiom> shrink(Set<OWLAxiom> ontology, OWLAxiom entailment, Set<OWLAxiom> keep) {
+        Set<OWLAxiom> rem = new HashSet<>(ontology);
         rem.removeAll(keep);
         remains = rem;
-        return new HashSet<OWLAxiom>(keep);
+        return new HashSet<>(keep);
     }
 }

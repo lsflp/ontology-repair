@@ -1,11 +1,8 @@
 package main.operations.blackbox.kernel;
 
 import main.operations.blackbox.AbstractBlackBox;
-import main.operations.blackbox.kernel.expansionstrategies.ClassicalBlackBoxKernelExpansionStrategy;
 import main.operations.blackbox.kernel.expansionstrategies.RevisionBlackBoxKernelExpansionStrategy;
-import main.operations.blackbox.kernel.full.ClassicalReiterKernelBuilder;
 import main.operations.blackbox.kernel.full.ClassicalRevisionKernelBuilder;
-import main.operations.blackbox.kernel.shrinkingstrategies.ClassicalBlackBoxKernelShrinkingStrategy;
 import main.operations.blackbox.kernel.shrinkingstrategies.RevisionBlackBoxKernelShrinkingStrategy;
 import org.semanticweb.owlapi.model.*;
 import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
@@ -14,11 +11,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Provides the computation of the kernel set.
+ * Provides the computation of the kernel set for the revision.
  *
  * Basically, this class just encapsulates the real implementation.
  *
- * @author Luís F. de M. C. Silva (inspired by Vinícius B. Matos)
+ * @author Luís F. de M. C. Silva (inspired by Fillipe M. X. Resina)
  *
  */
 public class RevisionKernelBuilder {
@@ -88,6 +85,19 @@ public class RevisionKernelBuilder {
         return kn.kernelSet(kb, entailment);
     }
 
+
+    /**
+     * Runs Reiter's algorithm to a ontology.
+     *
+     * @param ontology
+     *            the subject ontology
+     * @param manager
+     *            the ontology manager
+     * @param cut
+     *            the cut generated during the kernel algorithm
+     * @return remainderSets
+     *            the sets resulted by the remainder algorithm
+     */
     public Set<Set<OWLAxiom>> reiterSet(OWLOntology ontology,
                                         OWLOntologyManager manager, Set<Set<OWLAxiom>> cut) {
         Set<Set<OWLAxiom>> remainderSets = new HashSet<>();

@@ -11,10 +11,15 @@ import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Implements an alternative method for the shrinking part of BlackBox algorithm.
+ *
+ * @author Luís F. de M. C. Silva (inspired by Fillipe M. X. Resina)
+ */
 public class RevisionBlackBoxKernelShrinkingStrategy extends AbstractBlackBoxKernelShrinkingStrategy {
 
     /**
-     * Creates a variation of the shrinking part of BlackBox algorithm.
+     * Instantiates the class.
      *
      * @param manager
      *            the OWL ontology manager

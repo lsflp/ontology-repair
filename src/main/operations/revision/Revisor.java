@@ -18,11 +18,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Implements a Belief Revision operation called Revision.
+ * Implements a Belief Revision operation called Contraction, using the Kernel Constructor.
  *
  * The resulting set must have the formula α and can not be inconsistent.
  *
- * @author Luís F. de M. C. Silva
+ * @author Luís F. de M. C. Silva (inspired by Fillipe M. X. Resina)
+ *
  */
 public class Revisor {
 
@@ -45,6 +46,17 @@ public class Revisor {
         this.coreRetainment = coreRetainment;
     }
 
+    /**
+     * Executes the revision operation on the ontology.
+     *
+     * @param ontology
+     *            the initial ontology
+     * @param sentence
+     *            the sentence to be revised
+     * @return the resulting belief set, consistent and implying the sentence
+     * @throws OWLException
+     *             OWLException
+     */
     public Set<OWLAxiom> revise(OWLOntology ontology, OWLAxiom sentence)
             throws OWLOntologyChangeException, OWLException {
         if (Logger.getLogger("RV").isLoggable(Level.FINE)) {
@@ -53,7 +65,7 @@ public class Revisor {
                             + HumanReadableAxiomExpressionGenerator
                             .generateExpressionForSet(ontology.getAxioms()));
             Logger.getLogger("RV").log(Level.FINE,
-                    "\n---------- FORMULA TO BE CONTRACTED: \n"
+                    "\n---------- FORMULA TO BE REVISED: \n"
                             + HumanReadableAxiomExpressionGenerator
                             .generateExpression(sentence));
         }
@@ -68,7 +80,7 @@ public class Revisor {
         manager.addAxioms(inferredOntology, ontology.getAxioms()); // keep asserted axioms
         if (Logger.getLogger("RV").isLoggable(Level.FINE)) {
             Logger.getLogger("RV").log(Level.FINE,
-                    "\n---------- ONTOLOGY CLOSED UNDER Cn*: \n"
+                    "\n---------- ONTOLOGY CLOSED UNDER Cn: \n"
                             + HumanReadableAxiomExpressionGenerator
                             .generateExpressionForSet(
                                     inferredOntology.getAxioms()));
@@ -122,6 +134,17 @@ public class Revisor {
         return axioms;
     }
 
+
+    /**
+     * Finishes the operation according to the success
+     *
+     * @param revisionSet
+     *            the set that represents the kernel (or remainder0
+     * @param sentence
+     *            the sentence to perform revision
+     * @return revisionSet
+     *            the altered form of the input
+     */
     private Set<Set<OWLAxiom>> checkForSuccess(Set<Set<OWLAxiom>> revisionSet, OWLAxiom sentence) {
         if (success > 0) {
             for (Set<OWLAxiom> X: revisionSet) {

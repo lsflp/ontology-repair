@@ -111,7 +111,7 @@ public class PartialMeetContractor {
         manager.addAxioms(inferredOntology, ontology.getAxioms()); // keep asserted axioms
         if (Logger.getLogger("PMC").isLoggable(Level.FINE)) {
             Logger.getLogger("PMC").log(Level.FINE,
-                    "\n---------- ONTOLOGY CLOSED UNDER Cn*: \n"
+                    "\n---------- ONTOLOGY CLOSED UNDER Cn: \n"
                             + HumanReadableAxiomExpressionGenerator
                             .generateExpressionForSet(
                                     inferredOntology.getAxioms()));

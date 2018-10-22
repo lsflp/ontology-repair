@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 /**
  * Main class of the Kernel Contractor.
  *
- * @author Luís F. de M. C. Silva
+ * @author Luís F. de M. C. Silva (inspired by Vinícius B. Matos)
  *
  */
 public class KernelContraction {

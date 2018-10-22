@@ -144,7 +144,7 @@ public class SRWPseudoContractor {
         Set<OWLAxiom> intersection = it.next();
         while (it.hasNext()) {
             Set<OWLAxiom> s = it.next();
-            Set<OWLAxiom> removing = new HashSet<OWLAxiom>();
+            Set<OWLAxiom> removing = new HashSet<>();
             for (OWLAxiom a : intersection) {
                 if (!s.contains(a))
                     removing.add(a);
@@ -158,8 +158,7 @@ public class SRWPseudoContractor {
         for (Iterator<OWLAxiom> i = intersection.iterator(); i.hasNext();) {
             OWLAxiom axiom = i.next();
             if (axiom.isOfType(AxiomType.DISJOINT_CLASSES)) {
-                for (OWLClass c : ((OWLDisjointClassesAxiom) axiom)
-                        .getClassesInSignature())
+                for (OWLClass c : axiom.getClassesInSignature())
                     if (c.isBottomEntity()) {
                         i.remove();
                         break;

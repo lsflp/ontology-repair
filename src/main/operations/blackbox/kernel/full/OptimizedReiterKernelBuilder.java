@@ -33,6 +33,10 @@ public class OptimizedReiterKernelBuilder extends AbstractReiterKernelBuilder {
 		super(blackBox, manager, reasonerFactory);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 *
+	 */
 	public Set<Set<OWLAxiom>> kernelSet(Set<OWLAxiom> kb, OWLAxiom entailment) throws OWLOntologyCreationException {
 		Set<Set<OWLAxiom>> kernel = new HashSet<Set<OWLAxiom>>();
 

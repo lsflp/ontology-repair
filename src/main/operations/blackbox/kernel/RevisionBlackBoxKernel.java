@@ -8,6 +8,11 @@ import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
 import java.util.Set;
 
+/**
+ * This class computes a single of kernel sets for the revision.
+ *
+ * @author Luis F. de M. C. Silva (inspired by Fillipe M. X. Resina)
+ */
 public class RevisionBlackBoxKernel extends AbstractBlackBox {
 
     /**

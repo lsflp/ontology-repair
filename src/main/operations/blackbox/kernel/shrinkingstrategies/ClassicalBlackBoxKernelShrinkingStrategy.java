@@ -17,7 +17,7 @@ import java.util.Set;
 public class ClassicalBlackBoxKernelShrinkingStrategy extends AbstractBlackBoxKernelShrinkingStrategy {
 
 	/**
-	 * Creates a variation of the shrinking part of BlackBox algorithm.
+	 * Instantiate the class.
 	 *
 	 * @param manager
 	 *            the OWL ontology manager

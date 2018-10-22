@@ -13,6 +13,12 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Set;
 
+/**
+ * Implements an alternative algorithm for computing the kernel
+ * set, aimed to the revision operation.
+ *
+ * @author Luís F. de M. C. Silva (inspired by Fillipe M. X. Resina)
+ */
 public class ClassicalRevisionKernelBuilder extends AbstractReiterKernelBuilder {
 
     /**
@@ -38,6 +44,12 @@ public class ClassicalRevisionKernelBuilder extends AbstractReiterKernelBuilder 
         super(blackBox, manager, reasonerFactory);
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * The result may not be the full kernel set if the limit of the queue
+     * capacity or the limit of the computed kernel set size is too slow.
+     */
     @Override
     public Set<Set<OWLAxiom>> kernelSet(Set<OWLAxiom> kb, OWLAxiom entailment) throws OWLOntologyCreationException {
         Set<Set<OWLAxiom>> kernelSet = new HashSet<>();
