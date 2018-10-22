@@ -7,12 +7,10 @@ import main.operations.blackbox.kernel.full.ClassicalReiterKernelBuilder;
 import main.operations.blackbox.kernel.full.ClassicalRevisionKernelBuilder;
 import main.operations.blackbox.kernel.shrinkingstrategies.ClassicalBlackBoxKernelShrinkingStrategy;
 import main.operations.blackbox.kernel.shrinkingstrategies.RevisionBlackBoxKernelShrinkingStrategy;
-import org.semanticweb.owlapi.model.OWLAxiom;
-import org.semanticweb.owlapi.model.OWLOntologyChangeException;
-import org.semanticweb.owlapi.model.OWLOntologyCreationException;
-import org.semanticweb.owlapi.model.OWLOntologyManager;
+import org.semanticweb.owlapi.model.*;
 import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -88,6 +86,22 @@ public class RevisionKernelBuilder {
         kn.setMaxQueueSize(maxQueueSize);
         kn.setMaxKernelElements(maxKernelElements);
         return kn.kernelSet(kb, entailment);
+    }
+
+    public Set<Set<OWLAxiom>> reiterSet(OWLOntology ontology,
+                                        OWLOntologyManager manager, Set<Set<OWLAxiom>> cut) {
+        Set<Set<OWLAxiom>> remainderSets = new HashSet<>();
+        try {
+            for(Set<OWLAxiom> set : cut) {
+                manager.removeAxioms(ontology, set);
+                remainderSets.add(ontology.getAxioms());
+                manager.addAxioms(ontology, set);
+            }
+        } catch (OWLOntologyChangeException e) {
+            e.printStackTrace();
+        }
+
+        return remainderSets;
     }
 
     /**
