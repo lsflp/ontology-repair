@@ -1,13 +1,21 @@
 package main.operations.revision;
 
+import main.operations.auxiliars.AxiomGenerators;
+import main.operations.auxiliars.HumanReadableAxiomExpressionGenerator;
 import main.operations.blackbox.kernel.RevisionKernelBuilder;
 import main.operations.selectionfunctions.SelectionFunction;
 import org.semanticweb.HermiT.ReasonerFactory;
 import org.semanticweb.owlapi.model.*;
+import org.semanticweb.owlapi.reasoner.OWLReasoner;
+import org.semanticweb.owlapi.util.InferredAxiomGenerator;
+import org.semanticweb.owlapi.util.InferredOntologyGenerator;
 
-import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Implements a Belief Revision operation called Revision.
@@ -18,288 +26,162 @@ import java.util.Set;
  */
 public class Revisor {
 
-    protected String UniformityType = "no uniformity";
-    protected String SuccessType = "strong success";
-    protected String MinimalityType = "core retainment";
-
     private OWLOntologyManager manager;
     private ReasonerFactory reasonerFactory;
     private SelectionFunction sigma;
+    private Integer success;
+    private Boolean coreRetainment;
 
     private Set<Set<OWLAxiom>> cut;
+    private int maxQueueSize;
+    private int maxSetElements;
 
-    public Revision(OWLModelManager man, HashMap<String, String> options){
-        if (options != null){
-            if(options.containsKey("Success")){
-                SuccessType = options.get("Success");
-            }
-            if(options.containsKey("Uniformity")){
-                UniformityType = options.get("Uniformity");
-            }
-            if(options.containsKey("Minimality Type")){
-                MinimalityType = options.get("Minimality Type");
-            }
-        }
-    }
-
-    public Revisor(OWLOntologyManager manager, ReasonerFactory reasonerFactory, SelectionFunction sigma) {
+    public Revisor(OWLOntologyManager manager, ReasonerFactory reasonerFactory, SelectionFunction sigma,
+                   Integer success, Boolean coreRetainment) {
         this.manager = manager;
         this.reasonerFactory = reasonerFactory;
         this.sigma = sigma;
+        this.success = success;
+        this.coreRetainment = coreRetainment;
     }
 
-    public Set<Set<OWLAxiom>> revise (OWLOntology B, OWLAxiom sentence)
-            throws OWLOntologyChangeException, OWLOntologyCreationException{
-
-        HashMap<String, String> opt = new HashMap<String, String>();
-        opt.put("MinimalityType", MinimalityType);
-
-        manager.addAxiom(B, sentence);
-
+    public Set<OWLAxiom> revise(OWLOntology ontology, OWLAxiom sentence)
+            throws OWLOntologyChangeException, OWLException {
+        if (Logger.getLogger("RV").isLoggable(Level.FINE)) {
+            Logger.getLogger("RV").log(Level.FINE,
+                    "\n---------- ORIGINAL ONTOLOGY: \n"
+                            + HumanReadableAxiomExpressionGenerator
+                            .generateExpressionForSet(ontology.getAxioms()));
+            Logger.getLogger("RV").log(Level.FINE,
+                    "\n---------- FORMULA TO BE CONTRACTED: \n"
+                            + HumanReadableAxiomExpressionGenerator
+                            .generateExpression(sentence));
+        }
+        // create reasoner
+        OWLReasoner reasoner = reasonerFactory.createReasoner(ontology);
+        // close under Cn
+        OWLOntology inferredOntology = manager.createOntology();
+        List<InferredAxiomGenerator<? extends OWLAxiom>> gens = AxiomGenerators.allAxiomGenerators();
+        InferredOntologyGenerator ontologyGenerator = new InferredOntologyGenerator(
+                reasoner, gens);
+        ontologyGenerator.fillOntology(manager.getOWLDataFactory(), inferredOntology);
+        manager.addAxioms(inferredOntology, ontology.getAxioms()); // keep asserted axioms
+        if (Logger.getLogger("RV").isLoggable(Level.FINE)) {
+            Logger.getLogger("RV").log(Level.FINE,
+                    "\n---------- ONTOLOGY CLOSED UNDER Cn*: \n"
+                            + HumanReadableAxiomExpressionGenerator
+                            .generateExpressionForSet(
+                                    inferredOntology.getAxioms()));
+        }
+        // obtain set
+        manager.addAxiom(inferredOntology, sentence);
         RevisionKernelBuilder revisionKernelBuilder = new RevisionKernelBuilder(manager, reasonerFactory);
+        revisionKernelBuilder.setMaxQueueSize(maxQueueSize);
+        revisionKernelBuilder.setMaxKernelElements(maxSetElements);
         this.cut = revisionKernelBuilder.getCut();
-        Set<Set<OWLAxiom>> revision;
-
+        Set<Set<OWLAxiom>> revisionSet = new HashSet<>();
         try {
-            if(MinimalityType == "core retainment")
-                revision = revisionKernelBuilder.kernelSet(B.getAxioms(), null);
+            if(coreRetainment)
+                revisionSet = revisionKernelBuilder.kernelSet(inferredOntology.getAxioms(), null);
             else{
-                revision = reiter(B);
+                revisionSet = revisionKernelBuilder.reiterSet(inferredOntology, manager, cut);
             }
         } catch (OWLOntologyCreationException e) {
             e.printStackTrace();
         }
+        revisionSet = checkForSuccess(revisionSet, sentence);
 
-
-        if (SuccessType == "no success")
-            return revision;
-
-        Set< Set <OWLAxiom> > containedAlpha = new HashSet< Set<OWLAxiom> >();
-        Set< Set <OWLAxiom> > notContainedAlpha = new HashSet< Set<OWLAxiom> >();
-
-        for (Set<OWLAxiom>X: revision){
-            if (X.contains(sentence)){
-                X.remove(sentence);
-                containedAlpha.add(X);
-
-                if(X.isEmpty()){
-                    if (SuccessType == "strong success")
-                        X.add(sentence);
-                    else if (SuccessType == "weak success")
-                        revision.remove(X);
-                }
+        // apply a selection function
+        Set<Set<OWLAxiom>> best = sigma.select(ontology, revisionSet);
+        if (Logger.getLogger("RV").isLoggable(Level.FINER)) {
+            StringBuilder sb = new StringBuilder(
+                    "\n---------- " + (best.size()) + " SELECTED ELEMENT"
+                            + (best.size() != 1 ? "S" : "") + ": \n");
+            int i = 0;
+            for (Set<OWLAxiom> s : best) {
+                sb.append(String.format("\n[%d/%d]:\n", ++i, best.size())
+                        + HumanReadableAxiomExpressionGenerator
+                        .generateExpressionForSet(s));
             }
-            else
-                notContainedAlpha.add(X);
+            Logger.getLogger("RV").log(Level.FINER, sb.toString());
         }
 
+        // removes set of axioms from the ontology
+        Iterator<Set<OWLAxiom>> it = best.iterator();
+        Set<OWLAxiom> toRemove = it.next();
+        Set<OWLAxiom> axioms = ontology.getAxioms();
+        axioms.removeAll(toRemove);
 
-        //TODO testar essa parte
-        if(UniformityType == "weak uniformity"){
-            Set<OWLAxiom> toBeProtected = new HashSet<OWLAxiom>();
-            for (Set<OWLAxiom>cA: containedAlpha){
-                for (Set<OWLAxiom>nCA: notContainedAlpha){
-                    if (nCA.containsAll(cA)){
-                        nCA.removeAll(cA);
-                        if (nCA.size() == 1){
-                            for(OWLAxiom beta: nCA){
-                                OWLOntologyManager managerAlpha = OWLManager.createOWLOntologyManager();
-                                OWLOntologyManager managerBeta = OWLManager.createOWLOntologyManager();
-                                OWLOntology ontAlpha = managerAlpha.createOntology(IRI.create("alpha.owl"));
-                                OWLOntology ontBeta = managerBeta.createOntology(IRI.create("beta.owl"));
-                                PelletReasoner reasonerAlpha = PelletReasonerFactory.getInstance().createNonBufferingReasoner(ontAlpha);
-                                PelletReasoner reasonerBeta = PelletReasonerFactory.getInstance().createNonBufferingReasoner(ontBeta);
-                                managerAlpha.addOntologyChangeListener(reasonerAlpha);
-                                managerBeta.addOntologyChangeListener(reasonerBeta);
+        if (Logger.getLogger("RV").isLoggable(Level.FINE)) {
+            Logger.getLogger("RV").log(Level.FINE,
+                    "\n---------- FINAL ONTOLOGY: \n"
+                            + HumanReadableAxiomExpressionGenerator
+                            .generateExpressionForSet(axioms));
+        }
 
-                                AddAxiom addBeta = new AddAxiom(ontAlpha, beta);
-                                AddAxiom addAlpha = new AddAxiom(ontBeta, alpha);
-                                managerBeta.applyChange(addBeta);
-                                managerAlpha.applyChange(addAlpha);
-                                if (reasonerAlpha.isEntailed(beta) && reasonerBeta.isEntailed(alpha))
-                                    toBeProtected.add(beta);
-                            }
+        return axioms;
+    }
+
+    private Set<Set<OWLAxiom>> checkForSuccess(Set<Set<OWLAxiom>> revisionSet, OWLAxiom sentence) {
+        if (success > 0) {
+            for (Set<OWLAxiom> X: revisionSet) {
+                if (X.contains(sentence)) {
+                    X.remove(sentence);
+
+                    if(X.isEmpty()){
+                        if (success == 2) {
+                            X.add(sentence);
+                        }
+                        else if (success == 1) {
+                            revisionSet.remove(X);
                         }
                     }
                 }
             }
-            for (Set<OWLAxiom>X: revision){
-                for (OWLAxiom beta: toBeProtected)
-                    X.remove(beta);
-            }
         }
 
-
-        return revision;
+        return revisionSet;
     }
 
-//    public Set<Set<OWLAxiom>> mips(OWLOntology B){
-//        try {
-//            Set<Set<OWLAxiom>> mip = kernelMips(B);
-//            if(MinimalityType == "core retainment")
-//                return mip;
-//            else{
-//                return reiter(B);
-//            }
-//        } catch (OWLOntologyCreationException e) {
-//            // TODO Auto-generated catch block
-//            e.printStackTrace();
-//        } catch (OWLOntologyChangeException e) {
-//            // TODO Auto-generated catch block
-//            e.printStackTrace();
-//        }
-//        return null;
-//    }
+    /**
+     * Sets the capacity of the queue used by the algorithm.
+     *
+     * @param maxQueueSize
+     *            the limit of the size of the queue
+     *
+     */
+    public void setMaxQueueSize(int maxQueueSize) {
+        this.maxQueueSize = maxQueueSize;
+    }
 
-//    /**
-//     * Method that compute, for revision, all the elements of the kernel of B
-//     * using one element of the kernel (obtained by a black-box algorithm through
-//     * the method kernelMipsElement in this class) and applying to it an adaptation
-//     * of Reiter's algorithm.
-//     *
-//     * @param B - an inconsistent ontology for which we will compute its kernel
-//     *
-//     * @return mips - the kernel of B
-//     */
-//    public Set< Set<OWLAxiom> > kernelMips(OWLOntology B) throws OWLOntologyChangeException, OWLOntologyCreationException{
-//
-//        Set< Set<OWLAxiom> > mips = new HashSet<Set <OWLAxiom> >();
-//        OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
-//
-//        PelletReasoner reasoner = PelletReasonerFactory.getInstance().createNonBufferingReasoner(B);
-//        manager.addOntologyChangeListener(reasoner);
-//
-//        Queue<Set<OWLAxiom>> queue = new LinkedList<Set<OWLAxiom>>();
-//        Set<OWLAxiom> candidate = null;
-//        Set<OWLAxiom> hn;
-////    	boolean haveToContinue = false;
-//
-////    	AxiomConverter converter = new AxiomConverter( (KnowledgeBase) B, factory );
-////		pellet.getKB().setDoExplanation( true );
-////		set returned by the tracing
-////		exp = convertExplanation( converter, pellet.getKB().getExplanationSet() );
-////
-////		exp = convertExplanation( factory, converter, pellet.getKB().getExplanationSet() );
-////
-//        Set<OWLAxiom> exp = null;
-////		exp = convertExplanation(factory, converter, reasoner.getKB().getExplanationSet() );
-//        exp = B.getAxioms();
-//
-//        //Se a ontologia já é consistente não há o que calcular
-//        if (reasoner.isConsistent()){
-//            return mips;
-//        }
-//
-//        Set<OWLAxiom> X = new HashSet<OWLAxiom>();
-//        X = kernelMipsElement(exp);
-//        mips.add(X);
-//
-//        for(OWLAxiom axiom : X){
-//            Set<OWLAxiom> set = new HashSet<OWLAxiom>();
-//            set.add(axiom);
-//            queue.add(set);
-//        }
-//        //Reiter's algorithm
-//        while(!queue.isEmpty()) {
-//            hn = queue.remove();
-//
-////			haveToContinue = false;
-////			for(Set<OWLAxiom> set : cut) {
-////				//Check if there is an element of cut that is in hn
-////    			if(hn.containsAll(set)) {
-////    				haveToContinue = true;
-////    				break;
-////    			}
-////			}
-////    		if(haveToContinue)
-////    			continue;
-//            for(OWLAxiom axiom : hn) {
-//                RemoveAxiom removeAxiom = new RemoveAxiom(B, axiom);
-//                manager.applyChange(removeAxiom);
-//            }
-//            if(!reasoner.isConsistent()) {
-//                exp = B.getAxioms();
-//                candidate = this.kernelMipsElement(exp);
-//                kernel.add(candidate);
-//                for(OWLAxiom axiom : candidate) {
-//                    Set<OWLAxiom> set2 = new HashSet<OWLAxiom>();
-//                    set2.addAll(hn);
-//                    set2.add(axiom);
-//                    queue.add(set2);
-//                }
-//            }
-////    		else cut.add(hn);
-//
-//            //Restore to the ontology the axioms removed so it can be used again
-//            for(OWLAxiom axiom : hn) {
-//                AddAxiom addAxiom = new AddAxiom(B, axiom);
-//                manager.applyChange(addAxiom);
-//            }
-//        }
-//
-//        return mips;
-//    }
+    /**
+     * Gets the capacity of the queue used by the algorithm.
+     *
+     * @return the limit of the size of the queue
+     *
+     */
+    public int getMaxQueueSize() {
+        return maxQueueSize;
+    }
 
-//    /**
-//     * Method that compute, for revision, one element of the kernel of exp
-//     * using the strategy expand-shrink
-//     *
-//     * @param exp - a set of axioms from which we will extract one element of its kernel
-//     *
-//     * @return X - a kernel element
-//     */
-//    private Set<OWLAxiom> kernelMipsElement(Set<OWLAxiom> exp) throws OWLOntologyCreationException, OWLOntologyChangeException{
-//        // X é um elemento do kernel
-//        Set<OWLAxiom> X = new HashSet<OWLAxiom>();
-//
-//        OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
-//        OWLOntology ont = manager.createOntology(IRI.create("mips.owl"));
-//        PelletReasoner reasoner = PelletReasonerFactory.getInstance().createNonBufferingReasoner(ont);
-//        manager.addOntologyChangeListener(reasoner);
-//
-//        // First Part: EXPAND
-//        // Adicionamos os axiomas de exp na ontologia criada até que ela
-//        // seja inconsistente
-//        for (OWLAxiom axiom: exp){
-//            AddAxiom addAxiom = new AddAxiom(ont, axiom);
-//            manager.applyChange(addAxiom);
-//            if (!reasoner.isConsistent()){
-//                break;
-//            }
-//        }
-//
-//        // Second Part: SHRINK
-//        // Para cada axioma em exp, removemo-lo da ontologia ont (se contido) e
-//        // verificamos se ela não é mais inconsistente. Nesse caso, o axioma é
-//        // necessário para gerar a inconsistência e, portanto, deve fazer parte
-//        // de X, que pertence ao kernel
-//        for (OWLAxiom axiom : exp){
-//            if(ont.containsAxiom(axiom)) {
-//                RemoveAxiom removeAxiom = new RemoveAxiom(ont, axiom);
-//                manager.applyChange(removeAxiom);
-//                if (reasoner.isConsistent()){
-//                    X.add(axiom);
-//                    AddAxiom addAxiom = new AddAxiom(ont, axiom);
-//                    manager.applyChange(addAxiom);
-//                }
-//            }
-//        }
-//        return X;
-//    }
+    /**
+     *
+     * Gets the maximum number of elements in the computed remainder set.
+     *
+     * @return the maximum size of the computed remainder set
+     */
+    public int getMaxSetElements() {
+        return maxSetElements;
+    }
 
-    private Set<Set<OWLAxiom>> reiter(OWLOntology ontology){
-        Set<Set<OWLAxiom>> remainderSets = new HashSet<>();
-
-        try {
-            for(Set<OWLAxiom> set : cut) {
-                manager.removeAxioms(ontology, set);
-                remainderSets.add(ontology.getAxioms());
-                manager.addAxioms(ontology, set);
-            }
-        } catch (OWLOntologyChangeException e) {
-            e.printStackTrace();
-        }
-
-        return remainderSets;
+    /**
+     *
+     * Sets the maximum number of elements in the computed remainder set.
+     *
+     * @param maxSetElements
+     *            the maximum size of the computed remainder set
+     */
+    public void setMaxSetElements(int maxSetElements) {
+        this.maxSetElements = maxSetElements;
     }
 }
