@@ -36,12 +36,16 @@ public class OntologyRepair {
                description = "Maximum number of elements in the computer kernel or remainder set")
     private Integer maxSetSize = Integer.MAX_VALUE;
 
+    @Parameter(names = { "--success" },
+            description = "Success chosen for the revision. 0 for no success, 1 for weak success or 2 strong success")
+    private Integer success = -1;
+
     @Parameter(names = { "--core-retainment" },
-            description = "Minimality postulate used for the kernel contraction")
+            description = "Minimality postulate used for the kernel")
     private boolean coreRetainment = false;
 
     @Parameter(names = { "--relevance" },
-            description = "Minimality postulate used for the partial meet contraction")
+            description = "Minimality postulate used for the partial meet")
     private boolean relevance = false;
 
     @Parameter(names = { "-c", "--contraction" },
@@ -74,9 +78,9 @@ public class OntologyRepair {
             }
         }
 
-        else if (revision) {
+        else if (isRevisionPossible()) {
             Revision rev = new Revision(inputFileName, outputFileName, formulaString,
-                                        maxQueueSize, maxSetSize);
+                                        maxQueueSize, maxSetSize, success, coreRetainment);
             rev.run();
         }
 
@@ -101,6 +105,10 @@ public class OntologyRepair {
 
     private boolean isOneMinimalityPostulate() {
         return coreRetainment ^ relevance;
+    }
+
+    private boolean isRevisionPossible() {
+        return revision && success >= 0 && isOneMinimalityPostulate();
     }
 
     public static void main(String[] args) throws Exception {
