@@ -52,4 +52,10 @@ public class OperatorStrategy {
         return isEntailed;
     }
 
+    public boolean isConsistent(OWLOntology ontology) {
+        OWLReasoner reasoner = reasonerFactory.createNonBufferingReasoner(ontology);
+        boolean isConsistent = reasoner.isConsistent();
+        return isConsistent;
+    }
+
 }

@@ -23,12 +23,11 @@ public class RevisionBlackBoxKernelExpansionStrategy extends AbstractBlackBoxKer
 
     @Override
     public Set<OWLAxiom> expand(Set<OWLAxiom> kb, OWLAxiom entailment) throws OWLOntologyCreationException {
-        OWLOntology ontology = manager.createOntology(IRI.create("mips.owl"));
-        OWLReasoner reasoner = reasonerFactory.createNonBufferingReasoner(ontology);
+        OWLOntology ontology = manager.createOntology();
 
         for (OWLAxiom axiom : kb) {
             manager.addAxiom(ontology, axiom);
-            if (!reasoner.isConsistent()) {
+            if (!isConsistent(ontology)) {
                 break;
             }
         }
