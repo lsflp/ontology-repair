@@ -9,6 +9,12 @@ import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
 
 import java.util.Set;
 
+/**
+ * Implements an alternative algorithm for computing the kernel set,
+ * used for the revision operation.
+ *
+ * @author Luís F. de M. C. Silva (inspired by Fillipe M. X. Resina)
+ */
 public class RevisionBlackBoxKernelExpansionStrategy extends AbstractBlackBoxKernelExpansionStrategy {
 
     /**

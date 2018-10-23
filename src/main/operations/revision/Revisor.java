@@ -18,7 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Implements a Belief Revision operation called Contraction, using the Kernel Constructor.
+ * Implements a Belief Revision operation called Revision.
  *
  * The resulting set must have the formula α and can not be inconsistent.
  *

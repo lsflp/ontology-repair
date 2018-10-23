@@ -15,7 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Main class of the Kernel Contractor.
+ * Main class of the kernel contractor.
  *
  * @author Luís F. de M. C. Silva (inspired by Vinícius B. Matos)
  *

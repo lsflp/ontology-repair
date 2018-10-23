@@ -19,8 +19,10 @@ public class RevisionBlackBoxKernel extends AbstractBlackBox {
      * Creates a variation of the BlackBox algorithm with the given expansion
      * and shrinking strategies.
      *
-     * @param expansionStrategy the expansion strategy
-     * @param shrinkingStrategy the shrinking strategy
+     * @param expansionStrategy
+     *             the expansion strategy
+     * @param shrinkingStrategy
+     *             the shrinking strategy
      */
     public RevisionBlackBoxKernel(AbstractBlackBoxExpansionStrategy expansionStrategy, AbstractBlackBoxShrinkingStrategy shrinkingStrategy) {
         super(expansionStrategy, shrinkingStrategy);
