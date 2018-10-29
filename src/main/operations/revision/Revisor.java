@@ -71,6 +71,7 @@ public class Revisor {
         }
         // create reasoner
         OWLReasoner reasoner = reasonerFactory.createReasoner(ontology);
+        manager.addAxiom(ontology, sentence);
         // close under Cn
         OWLOntology inferredOntology = manager.createOntology();
         List<InferredAxiomGenerator<? extends OWLAxiom>> gens = AxiomGenerators.allAxiomGenerators();
@@ -86,7 +87,6 @@ public class Revisor {
                                     inferredOntology.getAxioms()));
         }
         // obtain set
-        manager.addAxiom(inferredOntology, sentence);
         RevisionKernelBuilder revisionKernelBuilder = new RevisionKernelBuilder(manager, reasonerFactory);
         revisionKernelBuilder.setMaxQueueSize(maxQueueSize);
         revisionKernelBuilder.setMaxKernelElements(maxSetElements);
