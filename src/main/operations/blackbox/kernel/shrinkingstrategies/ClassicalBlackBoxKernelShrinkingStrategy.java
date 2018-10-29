@@ -33,8 +33,8 @@ public class ClassicalBlackBoxKernelShrinkingStrategy extends AbstractBlackBoxKe
 		OWLOntology ontology= manager.createOntology(kb);
 		for (OWLAxiom axiom : kb){
 			manager.removeAxiom(ontology, axiom);
-			if(!isEntailed(ontology,entailment)){
-					manager.addAxiom(ontology, axiom);
+			if(!isEntailed(ontology, entailment)){
+				manager.addAxiom(ontology, axiom);
 			}
 		}
 		return ontology.getAxioms();
