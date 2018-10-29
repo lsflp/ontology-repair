@@ -87,7 +87,7 @@ public class ClassicalRevisionKernelBuilder extends AbstractReiterKernelBuilder 
 
             manager.removeAxioms(ontology, hn);
 
-            if (!reasoner.isConsistent()) {
+            if (!isConsistent(ontology)) {
                 exp = ontology.getAxioms();
                 candidate = blackBox.blackBox(exp, null);
                 for (OWLAxiom axiom : candidate) {

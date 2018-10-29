@@ -40,7 +40,7 @@ public class RevisionBlackBoxKernelShrinkingStrategy extends AbstractBlackBoxKer
         for (OWLAxiom axiom : kb) {
             if (inconsistent.contains(axiom)) {
                 manager.removeAxiom(ontology, axiom);
-                if (reasoner.isConsistent()) {
+                if (isConsistent(ontology)) {
                     kernelElement.add(axiom);
                     manager.addAxiom(ontology, axiom);
                 }
