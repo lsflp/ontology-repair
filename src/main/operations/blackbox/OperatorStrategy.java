@@ -2,9 +2,12 @@ package main.operations.blackbox;
 
 import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.reasoner.OWLReasoner;
 import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
+
+import java.util.Set;
 
 /**
  * Represents a variation of some part (expansion or shrinking) of BlackBox
@@ -52,7 +55,8 @@ public class OperatorStrategy {
         return isEntailed;
     }
 
-    public boolean isConsistent(OWLOntology ontology) {
+    public boolean isConsistent(Set<OWLAxiom> kb) throws OWLOntologyCreationException {
+        OWLOntology ontology = manager.createOntology(kb);
         OWLReasoner reasoner = reasonerFactory.createNonBufferingReasoner(ontology);
         boolean isConsistent = reasoner.isConsistent();
         return isConsistent;

@@ -1,5 +1,8 @@
 package main.operations.blackbox.kernel;
 
+import main.operations.blackbox.AbstractBlackBox;
+import main.operations.blackbox.AbstractBlackBoxExpansionStrategy;
+import main.operations.blackbox.AbstractBlackBoxShrinkingStrategy;
 import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
@@ -15,7 +18,7 @@ import java.util.Set;
  *
  * @author Luis F. de M. C. Silva (inspired by Fillipe M. X. Resina)
  */
-public class RevisionBlackBoxKernel {
+public class RevisionBlackBoxKernel extends AbstractBlackBox {
 
     private OWLOntologyManager manager;
     private OWLReasonerFactory reasonerFactory;
@@ -29,38 +32,16 @@ public class RevisionBlackBoxKernel {
      * @param shrinkingStrategy
      *             the shrinking strategy
      */
-    public RevisionBlackBoxKernel(OWLOntologyManager manager, OWLReasonerFactory reasonerFactory) {
-        this.manager = manager;
-        this.reasonerFactory = reasonerFactory;
+    public RevisionBlackBoxKernel(AbstractBlackBoxExpansionStrategy expansionStrategy, AbstractBlackBoxShrinkingStrategy shrinkingStrategy) {
+        super(expansionStrategy, shrinkingStrategy);
     }
 
-    public Set<OWLAxiom> blackBox(Set<OWLAxiom> expandedOntology) throws OWLOntologyCreationException {
-        Set<OWLAxiom> B = new HashSet<>();
 
-        for (OWLAxiom beta : expandedOntology) {
-            B.add(beta);
-            if (!isConsistent(B)) {
-                break;
-            }
-        }
+    @Override
+    public Set<OWLAxiom> blackBox(Set<OWLAxiom> ontology, OWLAxiom entailment, Set<OWLAxiom> initialSet) throws OWLOntologyCreationException {
+        Set<OWLAxiom> expansionResult = this.expansionStrategy.expand(ontology, null);
+        Set<OWLAxiom> shrinkingResult = this.shrinkingStrategy.shrink(expansionResult, null);
 
-        HashSet<OWLAxiom> aux = new HashSet<>();
-        aux.addAll(B);
-
-        for (OWLAxiom epsilon : B) {
-            aux.remove(epsilon);
-            if (isConsistent(aux)) {
-                aux.add(epsilon);
-            }
-        }
-
-        return aux;
-    }
-
-    private boolean isConsistent(Set<OWLAxiom> b) throws OWLOntologyCreationException {
-        OWLOntology ontology = this.manager.createOntology(b);
-        OWLReasoner reasoner = reasonerFactory.createNonBufferingReasoner(ontology);
-
-        return reasoner.isConsistent();
+        return shrinkingResult;
     }
 }

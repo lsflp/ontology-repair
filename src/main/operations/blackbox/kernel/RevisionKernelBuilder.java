@@ -75,12 +75,13 @@ public class RevisionKernelBuilder {
      */
     public Set<Set<OWLAxiom>> kernelSet(Set<OWLAxiom> kb, OWLAxiom entailment)
             throws OWLOntologyChangeException, OWLOntologyCreationException {
-        RevisionBlackBoxKernel blackbox = new RevisionBlackBoxKernel(manager, reasonerFactory);
-        ClassicalRevisionKernelBuilder kn = new ClassicalRevisionKernelBuilder(null, manager, reasonerFactory, blackbox);
+        AbstractBlackBox blackbox = new RevisionBlackBoxKernel(new RevisionBlackBoxKernelExpansionStrategy(manager, reasonerFactory), new RevisionBlackBoxKernelShrinkingStrategy(manager, reasonerFactory));
+        ClassicalRevisionKernelBuilder kn = new ClassicalRevisionKernelBuilder(blackbox, manager, reasonerFactory);
         this.setCut(kn.getCut());
         kn.setMaxQueueSize(maxQueueSize);
         kn.setMaxKernelElements(maxKernelElements);
-        return kn.kernelSet(kb);
+        kb.add(entailment);
+        return kn.kernelSet(kb, null);
     }
 
 

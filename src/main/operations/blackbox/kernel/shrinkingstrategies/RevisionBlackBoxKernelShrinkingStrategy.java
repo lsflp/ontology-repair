@@ -31,22 +31,17 @@ public class RevisionBlackBoxKernelShrinkingStrategy extends AbstractBlackBoxKer
     }
 
     @Override
-    public Set<OWLAxiom> shrink(Set<OWLAxiom> kb, OWLAxiom entailment, Set<OWLAxiom> inconsistent) throws OWLOntologyCreationException {
-        Set<OWLAxiom> kernelElement = new HashSet<OWLAxiom>();
+    public Set<OWLAxiom> shrink(Set<OWLAxiom> expandedOntology, OWLAxiom entailment, Set<OWLAxiom> inconsistent) throws OWLOntologyCreationException {
+        HashSet<OWLAxiom> aux = new HashSet<>();
+        aux.addAll(expandedOntology);
 
-        OWLOntology ontology = manager.createOntology(inconsistent);
-        OWLReasoner reasoner = reasonerFactory.createNonBufferingReasoner(ontology);
-
-        for (OWLAxiom axiom : kb) {
-            if (inconsistent.contains(axiom)) {
-                manager.removeAxiom(ontology, axiom);
-                if (isConsistent(ontology)) {
-                    kernelElement.add(axiom);
-                    manager.addAxiom(ontology, axiom);
-                }
+        for (OWLAxiom epsilon : expandedOntology) {
+            aux.remove(epsilon);
+            if (isConsistent(aux)) {
+                aux.add(epsilon);
             }
         }
 
-        return kernelElement;
+        return aux;
     }
 }

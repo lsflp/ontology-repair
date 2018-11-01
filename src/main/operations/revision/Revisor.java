@@ -10,7 +10,6 @@ import org.semanticweb.owlapi.reasoner.OWLReasoner;
 import org.semanticweb.owlapi.util.InferredAxiomGenerator;
 import org.semanticweb.owlapi.util.InferredOntologyGenerator;
 
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -91,7 +90,7 @@ public class Revisor {
         revisionKernelBuilder.setMaxQueueSize(maxQueueSize);
         revisionKernelBuilder.setMaxKernelElements(maxSetElements);
         this.cut = revisionKernelBuilder.getCut();
-        Set<Set<OWLAxiom>> revisionSet = revisionKernelBuilder.kernelSet(inferredOntology.getAxioms(), null);
+        Set<Set<OWLAxiom>> revisionSet = revisionKernelBuilder.kernelSet(inferredOntology.getAxioms(), sentence);
 
 
         // apply a selection function

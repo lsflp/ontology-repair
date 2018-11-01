@@ -1,18 +1,12 @@
 package main.operations.blackbox.kernel.full;
 
 import main.operations.blackbox.AbstractBlackBox;
-import main.operations.blackbox.kernel.RevisionBlackBoxKernel;
-import main.operations.blackbox.kernel.RevisionKernelBuilder;
 import org.semanticweb.owlapi.model.OWLAxiom;
-import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
-import org.semanticweb.owlapi.reasoner.OWLReasoner;
 import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
 
 import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Set;
 
 /**
@@ -21,7 +15,7 @@ import java.util.Set;
  *
  * @author Luís F. de M. C. Silva (inspired by Fillipe M. X. Resina)
  */
-public class ClassicalRevisionKernelBuilder {
+public class ClassicalRevisionKernelBuilder extends AbstractReiterKernelBuilder {
 
     /**
      * The capacity of the queue used by this algorithm.
@@ -34,22 +28,18 @@ public class ClassicalRevisionKernelBuilder {
     private int maxKernelElements = Integer.MAX_VALUE;
 
     private Set<Set<OWLAxiom>> cut = new HashSet<>();
-    private OWLOntologyManager manager;
-    private OWLReasonerFactory reasonerFactory;
-    private RevisionBlackBoxKernel revisionBlackBoxKernel;
 
     /**
      * Instantiates the class.
      *
      * @param blackBox        an implementation of the blackbox algorithm
      * @param manager         the ontology manager
-     * @param reasonerFactory
+     * @param reasonerFactory a factory that builds the reasoner
      */
-    public ClassicalRevisionKernelBuilder(AbstractBlackBox blackBox, OWLOntologyManager manager, OWLReasonerFactory reasonerFactory, RevisionBlackBoxKernel revisionBlackBoxKernel) {
-        this.manager = manager;
-        this.reasonerFactory = reasonerFactory;
-        this.revisionBlackBoxKernel = revisionBlackBoxKernel;
+    public ClassicalRevisionKernelBuilder(AbstractBlackBox blackBox, OWLOntologyManager manager, OWLReasonerFactory reasonerFactory) {
+        super(blackBox, manager, reasonerFactory);
     }
+
 
     /**
      * {@inheritDoc}
@@ -57,7 +47,8 @@ public class ClassicalRevisionKernelBuilder {
      * The result may not be the full kernel set if the limit of the queue
      * capacity or the limit of the computed kernel set size is too slow.
      */
-    public Set<Set<OWLAxiom>> kernelSet(Set<OWLAxiom> kb) throws OWLOntologyCreationException {
+    @Override
+    public Set<Set<OWLAxiom>> kernelSet(Set<OWLAxiom> kb, OWLAxiom entailment) throws OWLOntologyCreationException {
 
         Set<Set<OWLAxiom>> kernel = new HashSet<>();
 
@@ -65,7 +56,7 @@ public class ClassicalRevisionKernelBuilder {
             return kernel;
         }
 
-        Set<OWLAxiom> min = revisionBlackBoxKernel.blackBox(kb);
+        Set<OWLAxiom> min = this.blackBox.blackBox(kb, null);
         kernel.add(min);
 
         HashSet<OWLAxiom> aux = new HashSet<>();
@@ -73,7 +64,7 @@ public class ClassicalRevisionKernelBuilder {
 
         for (OWLAxiom beta : min) {
             aux.remove(beta);
-            kernel.addAll(kernelSet(aux));
+            kernel.addAll(kernelSet(aux, null));
             aux.add(beta);
         }
 

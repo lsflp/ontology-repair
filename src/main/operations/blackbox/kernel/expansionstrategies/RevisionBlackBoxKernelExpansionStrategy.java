@@ -7,6 +7,7 @@ import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -30,16 +31,16 @@ public class RevisionBlackBoxKernelExpansionStrategy extends AbstractBlackBoxKer
     }
 
     @Override
-    public Set<OWLAxiom> expand(Set<OWLAxiom> kb, OWLAxiom entailment) throws OWLOntologyCreationException {
-        OWLOntology ontology = manager.createOntology();
+    public Set<OWLAxiom> expand(Set<OWLAxiom> expandedOntology, OWLAxiom entailment) throws OWLOntologyCreationException {
+        Set<OWLAxiom> B = new HashSet<>();
 
-        for (OWLAxiom axiom : kb) {
-            manager.addAxiom(ontology, axiom);
-            if (!isConsistent(ontology)) {
+        for (OWLAxiom beta : expandedOntology) {
+            B.add(beta);
+            if (!isConsistent(B)) {
                 break;
             }
         }
 
-        return ontology.getAxioms();
+        return B;
     }
 }
