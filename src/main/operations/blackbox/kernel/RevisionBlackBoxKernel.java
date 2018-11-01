@@ -1,11 +1,13 @@
 package main.operations.blackbox.kernel;
 
-import main.operations.blackbox.AbstractBlackBox;
-import main.operations.blackbox.AbstractBlackBoxExpansionStrategy;
-import main.operations.blackbox.AbstractBlackBoxShrinkingStrategy;
 import org.semanticweb.owlapi.model.OWLAxiom;
+import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
+import org.semanticweb.owlapi.model.OWLOntologyManager;
+import org.semanticweb.owlapi.reasoner.OWLReasoner;
+import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -13,7 +15,10 @@ import java.util.Set;
  *
  * @author Luis F. de M. C. Silva (inspired by Fillipe M. X. Resina)
  */
-public class RevisionBlackBoxKernel extends AbstractBlackBox {
+public class RevisionBlackBoxKernel {
+
+    private OWLOntologyManager manager;
+    private OWLReasonerFactory reasonerFactory;
 
     /**
      * Creates a variation of the BlackBox algorithm with the given expansion
@@ -24,15 +29,38 @@ public class RevisionBlackBoxKernel extends AbstractBlackBox {
      * @param shrinkingStrategy
      *             the shrinking strategy
      */
-    public RevisionBlackBoxKernel(AbstractBlackBoxExpansionStrategy expansionStrategy, AbstractBlackBoxShrinkingStrategy shrinkingStrategy) {
-        super(expansionStrategy, shrinkingStrategy);
+    public RevisionBlackBoxKernel(OWLOntologyManager manager, OWLReasonerFactory reasonerFactory) {
+        this.manager = manager;
+        this.reasonerFactory = reasonerFactory;
     }
 
-    @Override
-    public Set<OWLAxiom> blackBox(Set<OWLAxiom> ontology, OWLAxiom entailment, Set<OWLAxiom> initialSet) throws OWLOntologyCreationException {
-        Set<OWLAxiom> expansionResult = expansionStrategy.expand(ontology, entailment);
-        Set<OWLAxiom> shrinkingResult = shrinkingStrategy.shrink(ontology, entailment, expansionResult);
+    public Set<OWLAxiom> blackBox(Set<OWLAxiom> expandedOntology) throws OWLOntologyCreationException {
+        Set<OWLAxiom> B = new HashSet<>();
 
-        return shrinkingResult;
+        for (OWLAxiom beta : expandedOntology) {
+            B.add(beta);
+            if (!isConsistent(B)) {
+                break;
+            }
+        }
+
+        HashSet<OWLAxiom> aux = new HashSet<>();
+        aux.addAll(B);
+
+        for (OWLAxiom epsilon : B) {
+            aux.remove(epsilon);
+            if (isConsistent(aux)) {
+                aux.add(epsilon);
+            }
+        }
+
+        return aux;
+    }
+
+    private boolean isConsistent(Set<OWLAxiom> b) throws OWLOntologyCreationException {
+        OWLOntology ontology = this.manager.createOntology(b);
+        OWLReasoner reasoner = reasonerFactory.createNonBufferingReasoner(ontology);
+
+        return reasoner.isConsistent();
     }
 }

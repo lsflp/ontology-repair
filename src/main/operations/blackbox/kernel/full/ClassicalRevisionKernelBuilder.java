@@ -1,6 +1,8 @@
 package main.operations.blackbox.kernel.full;
 
 import main.operations.blackbox.AbstractBlackBox;
+import main.operations.blackbox.kernel.RevisionBlackBoxKernel;
+import main.operations.blackbox.kernel.RevisionKernelBuilder;
 import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
@@ -19,7 +21,7 @@ import java.util.Set;
  *
  * @author Luís F. de M. C. Silva (inspired by Fillipe M. X. Resina)
  */
-public class ClassicalRevisionKernelBuilder extends AbstractReiterKernelBuilder {
+public class ClassicalRevisionKernelBuilder {
 
     /**
      * The capacity of the queue used by this algorithm.
@@ -32,6 +34,9 @@ public class ClassicalRevisionKernelBuilder extends AbstractReiterKernelBuilder 
     private int maxKernelElements = Integer.MAX_VALUE;
 
     private Set<Set<OWLAxiom>> cut = new HashSet<>();
+    private OWLOntologyManager manager;
+    private OWLReasonerFactory reasonerFactory;
+    private RevisionBlackBoxKernel revisionBlackBoxKernel;
 
     /**
      * Instantiates the class.
@@ -40,8 +45,10 @@ public class ClassicalRevisionKernelBuilder extends AbstractReiterKernelBuilder 
      * @param manager         the ontology manager
      * @param reasonerFactory
      */
-    public ClassicalRevisionKernelBuilder(AbstractBlackBox blackBox, OWLOntologyManager manager, OWLReasonerFactory reasonerFactory) {
-        super(blackBox, manager, reasonerFactory);
+    public ClassicalRevisionKernelBuilder(AbstractBlackBox blackBox, OWLOntologyManager manager, OWLReasonerFactory reasonerFactory, RevisionBlackBoxKernel revisionBlackBoxKernel) {
+        this.manager = manager;
+        this.reasonerFactory = reasonerFactory;
+        this.revisionBlackBoxKernel = revisionBlackBoxKernel;
     }
 
     /**
@@ -50,63 +57,27 @@ public class ClassicalRevisionKernelBuilder extends AbstractReiterKernelBuilder 
      * The result may not be the full kernel set if the limit of the queue
      * capacity or the limit of the computed kernel set size is too slow.
      */
-    @Override
-    public Set<Set<OWLAxiom>> kernelSet(Set<OWLAxiom> kb, OWLAxiom entailment) throws OWLOntologyCreationException {
-        Set<Set<OWLAxiom>> kernelSet = new HashSet<>();
+    public Set<Set<OWLAxiom>> kernelSet(Set<OWLAxiom> kb) throws OWLOntologyCreationException {
 
-        OWLOntology ontology = manager.createOntology(kb);
-        OWLReasoner reasoner = reasonerFactory.createNonBufferingReasoner(ontology);
+        Set<Set<OWLAxiom>> kernel = new HashSet<>();
 
-        Queue<Set<OWLAxiom>> queue = new LinkedList<>();
-
-        Set<OWLAxiom> candidate, hn;
-        Set<OWLAxiom> exp = new HashSet<>();
-        exp.addAll(kb);
-
-        if (reasoner.isConsistent()) {
-            return kernelSet;
+        if (reasonerFactory.createNonBufferingReasoner(manager.createOntology(kb)).isConsistent()) {
+            return kernel;
         }
 
-        Set<OWLAxiom> X = blackBox.blackBox(exp, null);
-        kernelSet.add(X);
+        Set<OWLAxiom> min = revisionBlackBoxKernel.blackBox(kb);
+        kernel.add(min);
 
-        for (OWLAxiom axiom : X){
-            if (queue.size() >= maxQueueSize)
-                break;
-            Set<OWLAxiom> set = new HashSet<>();
-            set.add(axiom);
-            queue.add(set);
+        HashSet<OWLAxiom> aux = new HashSet<>();
+        aux.addAll(kb);
+
+        for (OWLAxiom beta : min) {
+            aux.remove(beta);
+            kernel.addAll(kernelSet(aux));
+            aux.add(beta);
         }
 
-        if (kernelSet.size() >= maxKernelElements)
-            return kernelSet;
-
-        // Reiter's algorithm
-        while (!queue.isEmpty()) {
-            hn = queue.remove();
-
-            manager.removeAxioms(ontology, hn);
-
-            if (!isConsistent(ontology)) {
-                exp = ontology.getAxioms();
-                candidate = blackBox.blackBox(exp, null);
-                for (OWLAxiom axiom : candidate) {
-                    if (queue.size() >= maxQueueSize)
-                        break;
-                    Set<OWLAxiom> set2 = new HashSet<>();
-                    set2.addAll(hn);
-                    set2.add(axiom);
-                    queue.add(set2);
-                }
-            }
-            else {
-                cut.add(hn);
-            }
-
-            manager.addAxioms(ontology, hn);
-        }
-
-        return kernelSet;
+        return kernel;
     }
 
     /**

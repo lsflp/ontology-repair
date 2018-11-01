@@ -91,17 +91,8 @@ public class Revisor {
         revisionKernelBuilder.setMaxQueueSize(maxQueueSize);
         revisionKernelBuilder.setMaxKernelElements(maxSetElements);
         this.cut = revisionKernelBuilder.getCut();
-        Set<Set<OWLAxiom>> revisionSet = new HashSet<>();
-        try {
-            if(coreRetainment)
-                revisionSet = revisionKernelBuilder.kernelSet(inferredOntology.getAxioms(), null);
-            else{
-                revisionSet = revisionKernelBuilder.reiterSet(inferredOntology, manager, cut);
-            }
-        } catch (OWLOntologyCreationException e) {
-            e.printStackTrace();
-        }
-        revisionSet = checkForSuccess(revisionSet, sentence);
+        Set<Set<OWLAxiom>> revisionSet = revisionKernelBuilder.kernelSet(inferredOntology.getAxioms(), null);
+
 
         // apply a selection function
         Set<Set<OWLAxiom>> best = sigma.select(ontology, revisionSet);
