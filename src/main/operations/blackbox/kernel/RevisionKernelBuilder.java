@@ -41,8 +41,6 @@ public class RevisionKernelBuilder {
      */
     private int maxKernelElements = Integer.MAX_VALUE;
 
-    private Set<Set<OWLAxiom>> cut;
-
     /**
      * Instantiates the class.
      *
@@ -77,13 +75,11 @@ public class RevisionKernelBuilder {
             throws OWLOntologyChangeException, OWLOntologyCreationException {
         AbstractBlackBox blackbox = new RevisionBlackBoxKernel(new RevisionBlackBoxKernelExpansionStrategy(manager, reasonerFactory), new RevisionBlackBoxKernelShrinkingStrategy(manager, reasonerFactory));
         ClassicalRevisionKernelBuilder kn = new ClassicalRevisionKernelBuilder(blackbox, manager, reasonerFactory);
-        this.setCut(kn.getCut());
         kn.setMaxQueueSize(maxQueueSize);
         kn.setMaxKernelElements(maxKernelElements);
         kb.add(entailment);
         return kn.kernelSet(kb, null);
     }
-
 
     /**
      * Runs Reiter's algorithm to a ontology.
@@ -153,13 +149,5 @@ public class RevisionKernelBuilder {
      */
     public void setMaxKernelElements(int maxKernelElements) {
         this.maxKernelElements = maxKernelElements;
-    }
-
-    public Set<Set<OWLAxiom>> getCut() {
-        return cut;
-    }
-
-    public void setCut(Set<Set<OWLAxiom>> cut) {
-        this.cut = cut;
     }
 }

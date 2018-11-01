@@ -32,7 +32,6 @@ public class Revisor {
     private Integer success;
     private Boolean coreRetainment;
 
-    private Set<Set<OWLAxiom>> cut;
     private int maxQueueSize;
     private int maxSetElements;
 
@@ -89,10 +88,8 @@ public class Revisor {
         RevisionKernelBuilder revisionKernelBuilder = new RevisionKernelBuilder(manager, reasonerFactory);
         revisionKernelBuilder.setMaxQueueSize(maxQueueSize);
         revisionKernelBuilder.setMaxKernelElements(maxSetElements);
-        this.cut = revisionKernelBuilder.getCut();
         Set<Set<OWLAxiom>> revisionSet = revisionKernelBuilder.kernelSet(inferredOntology.getAxioms(), sentence);
-
-
+        
         // apply a selection function
         Set<Set<OWLAxiom>> best = sigma.select(ontology, revisionSet);
         if (Logger.getLogger("RV").isLoggable(Level.FINER)) {

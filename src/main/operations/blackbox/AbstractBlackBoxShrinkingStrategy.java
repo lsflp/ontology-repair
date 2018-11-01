@@ -41,7 +41,7 @@ public abstract class AbstractBlackBoxShrinkingStrategy extends OperatorStrategy
      *             OWLOntologyCreationException
      */
     public Set<OWLAxiom> shrink(Set<OWLAxiom> ontology, OWLAxiom entailment) throws OWLOntologyCreationException {
-        return shrink(ontology, entailment, Collections.<OWLAxiom>emptySet());
+        return shrink(ontology, entailment, Collections.emptySet());
     }
 
     /**

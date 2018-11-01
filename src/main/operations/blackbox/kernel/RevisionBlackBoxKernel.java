@@ -4,13 +4,8 @@ import main.operations.blackbox.AbstractBlackBox;
 import main.operations.blackbox.AbstractBlackBoxExpansionStrategy;
 import main.operations.blackbox.AbstractBlackBoxShrinkingStrategy;
 import org.semanticweb.owlapi.model.OWLAxiom;
-import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
-import org.semanticweb.owlapi.model.OWLOntologyManager;
-import org.semanticweb.owlapi.reasoner.OWLReasoner;
-import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
 
-import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -19,9 +14,6 @@ import java.util.Set;
  * @author Luis F. de M. C. Silva (inspired by Fillipe M. X. Resina)
  */
 public class RevisionBlackBoxKernel extends AbstractBlackBox {
-
-    private OWLOntologyManager manager;
-    private OWLReasonerFactory reasonerFactory;
 
     /**
      * Creates a variation of the BlackBox algorithm with the given expansion

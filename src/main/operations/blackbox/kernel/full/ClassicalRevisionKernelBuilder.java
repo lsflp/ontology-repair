@@ -27,8 +27,6 @@ public class ClassicalRevisionKernelBuilder extends AbstractReiterKernelBuilder 
      */
     private int maxKernelElements = Integer.MAX_VALUE;
 
-    private Set<Set<OWLAxiom>> cut = new HashSet<>();
-
     /**
      * Instantiates the class.
      *
@@ -113,7 +111,4 @@ public class ClassicalRevisionKernelBuilder extends AbstractReiterKernelBuilder 
         this.maxKernelElements = maxKernelElements;
     }
 
-    public Set<Set<OWLAxiom>> getCut() {
-        return cut;
-    }
 }
