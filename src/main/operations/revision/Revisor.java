@@ -29,19 +29,14 @@ public class Revisor {
     private OWLOntologyManager manager;
     private ReasonerFactory reasonerFactory;
     private SelectionFunction sigma;
-    private Integer success;
-    private Boolean coreRetainment;
 
     private int maxQueueSize;
     private int maxSetElements;
 
-    public Revisor(OWLOntologyManager manager, ReasonerFactory reasonerFactory, SelectionFunction sigma,
-                   Integer success, Boolean coreRetainment) {
+    public Revisor(OWLOntologyManager manager, ReasonerFactory reasonerFactory, SelectionFunction sigma) {
         this.manager = manager;
         this.reasonerFactory = reasonerFactory;
         this.sigma = sigma;
-        this.success = success;
-        this.coreRetainment = coreRetainment;
     }
 
     /**
@@ -89,7 +84,7 @@ public class Revisor {
         revisionKernelBuilder.setMaxQueueSize(maxQueueSize);
         revisionKernelBuilder.setMaxKernelElements(maxSetElements);
         Set<Set<OWLAxiom>> revisionSet = revisionKernelBuilder.kernelSet(inferredOntology.getAxioms(), sentence);
-        
+
         // apply a selection function
         Set<Set<OWLAxiom>> best = sigma.select(ontology, revisionSet);
         if (Logger.getLogger("RV").isLoggable(Level.FINER)) {
@@ -119,38 +114,6 @@ public class Revisor {
         }
 
         return axioms;
-    }
-
-
-    /**
-     * Finishes the operation according to the success
-     *
-     * @param revisionSet
-     *            the set that represents the kernel (or remainder0
-     * @param sentence
-     *            the sentence to perform revision
-     * @return revisionSet
-     *            the altered form of the input
-     */
-    private Set<Set<OWLAxiom>> checkForSuccess(Set<Set<OWLAxiom>> revisionSet, OWLAxiom sentence) {
-        if (success > 0) {
-            for (Set<OWLAxiom> X: revisionSet) {
-                if (X.contains(sentence)) {
-                    X.remove(sentence);
-
-                    if(X.isEmpty()){
-                        if (success == 2) {
-                            X.add(sentence);
-                        }
-                        else if (success == 1) {
-                            revisionSet.remove(X);
-                        }
-                    }
-                }
-            }
-        }
-
-        return revisionSet;
     }
 
     /**

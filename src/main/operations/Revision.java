@@ -26,19 +26,14 @@ public class Revision {
     private String formulaString;
     private Integer maxQueueSize;
     private Integer maxSetSize;
-    private Integer success;
-    private Boolean coreRetainment;
 
     public Revision (String inputFileName, String outputFileName, String formulaString,
-                     Integer maxQueueSize, Integer maxSetSize, Integer success,
-                     Boolean coreRetainment) {
+                     Integer maxQueueSize, Integer maxSetSize) {
         this.inputFileName = inputFileName;
         this.outputFileName = outputFileName;
         this.formulaString = formulaString;
         this.maxQueueSize = maxQueueSize;
         this.maxSetSize = maxSetSize;
-        this.success = success;
-        this.coreRetainment = coreRetainment;
     }
 
     public void run() {
@@ -62,8 +57,7 @@ public class Revision {
             return;
         }
         Logger.getLogger("RV").log(Level.INFO, "Creating the pseudo-contractor...");
-        Revisor revisor = new Revisor(manager, new ReasonerFactory(), new SelectionFunctionFull(),
-                                      success, coreRetainment);
+        Revisor revisor = new Revisor(manager, new ReasonerFactory(), new SelectionFunctionFull());
         revisor.setMaxSetElements(maxSetSize);
         revisor.setMaxQueueSize(maxQueueSize);
         Logger.getLogger("RV").log(Level.INFO, "Executing the operation...");
