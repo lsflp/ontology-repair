@@ -50,7 +50,7 @@ public class ClassicalRevisionKernelBuilder extends AbstractReiterKernelBuilder 
 
         Set<Set<OWLAxiom>> kernel = new HashSet<>();
 
-        if (reasonerFactory.createNonBufferingReasoner(manager.createOntology(kb)).isConsistent()) {
+        if (isConsistent(kb)) {
             return kernel;
         }
 
