@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="77dfdc67-bd52-4095-87c8-6d5b4adb4be6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/operations/contraction/KernelContractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/operations/contraction/KernelContractor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/operations/revision/Revisor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/operations/revision/Revisor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/operations/KernelContraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/operations/KernelContraction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/operations/incisionfunction/IncisionFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/operations/incisionfunction/IncisionFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/operations/incisionfunction/IncisionFunctionAny.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/operations/incisionfunction/IncisionFunctionAny.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/operations/incisionfunction/IncisionFunctionUnion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/operations/incisionfunction/IncisionFunctionUnion.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,7 +35,7 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="8" />
-          <entry key="java" value="189" />
+          <entry key="java" value="196" />
           <entry key="owl" value="1" />
           <entry key="sh" value="1" />
           <entry key="xml" value="2" />
@@ -43,20 +44,20 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="8" />
-          <entry key="JAVA" value="189" />
+          <entry key="JAVA" value="196" />
           <entry key="PLAIN_TEXT" value="2" />
           <entry key="XML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="2214" />
+          <entry key="java" value="2383" />
           <entry key="xml" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2214" />
+          <entry key="JAVA" value="2383" />
           <entry key="XML" value="9" />
         </counts>
       </usages-collector>
@@ -65,34 +66,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/operations/srwpseudocontraction/SRWPseudoContractor.java">
+        <entry file="file://$PROJECT_DIR$/src/main/operations/incisionfunction/IncisionFunction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1901">
-              <caret line="71" column="7" lean-forward="true" selection-start-line="62" selection-start-column="4" selection-end-line="71" selection-end-column="7" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/operations/revision/Revisor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="683">
-              <caret line="186" column="57" selection-start-line="186" selection-start-column="57" selection-end-line="186" selection-end-column="57" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/operations/contraction/PartialMeetContractor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3231">
-              <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+            <state relative-caret-position="209">
+              <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -101,13 +78,58 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/operations/contraction/KernelContractor.java">
+        <entry file="file://$PROJECT_DIR$/src/main/operations/KernelContraction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-666">
-              <caret line="72" column="7" selection-start-line="72" selection-start-column="7" selection-end-line="72" selection-end-column="7" />
+            <state relative-caret-position="-799">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/operations/selectionfunctions/SelectionFunction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="10" column="63" selection-start-line="10" selection-start-column="62" selection-end-line="10" selection-end-column="63" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/operations/incisionfunction/IncisionFunctionAny.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/operations/incisionfunction/IncisionFunctionUnion.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/operations/selectionfunctions/SelectionFunctionAny.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="8" selection-start-line="8" selection-end-line="14" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/operations/selectionfunctions/SelectionFunctionFull.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="8" selection-start-line="8" selection-end-line="13" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -149,7 +171,6 @@
         <option value="$PROJECT_DIR$/src/main/operations/srwpseudocontraction/SRWPseudoContractor.java" />
         <option value="$PROJECT_DIR$/src/main/operations/auxiliars/AlternativeOWLExpressionParser.java" />
         <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/full/OptimizedReiterKernelBuilder.java" />
-        <option value="$PROJECT_DIR$/src/main/operations/KernelContraction.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/shrinkingstrategies/RevisionBlackBoxKernelShrinkingStrategy.java" />
         <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/expansionstrategies/RevisionBlackBoxKernelExpansionStrategy.java" />
@@ -161,14 +182,16 @@
         <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/full/ClassicalRevisionKernelBuilder.java" />
         <option value="$PROJECT_DIR$/src/main/OntologyRepair.java" />
         <option value="$PROJECT_DIR$/src/main/operations/PartialMeetContraction.java" />
-        <option value="$PROJECT_DIR$/src/main/operations/incisionfunction/IncisionFunctionUnion.java" />
         <option value="$PROJECT_DIR$/src/main/operations/incisionfunction/IncisionFunctionSome.java" />
-        <option value="$PROJECT_DIR$/src/main/operations/incisionfunction/IncisionFunctionAny.java" />
         <option value="$PROJECT_DIR$/src/main/operations/Revision.java" />
-        <option value="$PROJECT_DIR$/src/main/operations/incisionfunction/IncisionFunction.java" />
         <option value="$PROJECT_DIR$/src/main/operations/contraction/PartialMeetContractor.java" />
         <option value="$PROJECT_DIR$/src/main/operations/contraction/KernelContractor.java" />
         <option value="$PROJECT_DIR$/src/main/operations/revision/Revisor.java" />
+        <option value="$PROJECT_DIR$/src/main/operations/incisionfunction/IncisionFunctionAny.java" />
+        <option value="$PROJECT_DIR$/src/main/operations/incisionfunction/IncisionFunctionUnion.java" />
+        <option value="$PROJECT_DIR$/src/main/operations/selectionfunctions/SelectionFunction.java" />
+        <option value="$PROJECT_DIR$/src/main/operations/incisionfunction/IncisionFunction.java" />
+        <option value="$PROJECT_DIR$/src/main/operations/KernelContraction.java" />
       </list>
     </option>
   </component>
@@ -228,7 +251,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="operations" type="462c0819:PsiDirectoryNode" />
-              <item name="contraction" type="462c0819:PsiDirectoryNode" />
+              <item name="incisionfunction" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ontologyrepair" type="b2602c69:ProjectViewProjectNode" />
@@ -236,15 +259,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="operations" type="462c0819:PsiDirectoryNode" />
-              <item name="revision" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ontologyrepair" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ontology-repair" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="operations" type="462c0819:PsiDirectoryNode" />
-              <item name="srwpseudocontraction" type="462c0819:PsiDirectoryNode" />
+              <item name="selectionfunctions" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -257,7 +272,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541610867173" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541611282774" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/target/ontologyrepair-1.0.0-SNAPSHOT.jar" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -321,12 +336,12 @@
       <workItem from="1541543700485" duration="3631000" />
       <workItem from="1541552557721" duration="2174000" />
       <workItem from="1541596545989" duration="590000" />
-      <workItem from="1541609526094" duration="1338000" />
+      <workItem from="1541609526094" duration="1594000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40235000" />
+    <option name="totallyTimeSpent" value="40491000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="1055" extended-state="6" />
@@ -366,7 +381,7 @@
       <window_info anchor="right" id="Bean Validation" order="10" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18249734" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18890075" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -376,7 +391,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.42486486" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.42486486" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.29621622" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -659,13 +674,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/operations/selectionfunctions/SelectionFunction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="28" column="35" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/operations/blackbox/OperatorStrategy.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="569">
@@ -674,13 +682,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/operations/incisionfunction/IncisionFunctionSome.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/operations/selectionfunctions/SelectionFunctionFull.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/net/sourceforge/owlapi/owlapi-distribution/4.1.3/owlapi-distribution-4.1.3.jar!/uk/ac/manchester/cs/owl/owlapi/OWLObjectImplWithEntityAndAnonCaching.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="284">
@@ -692,27 +693,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1349">
           <caret line="79" column="27" selection-start-line="79" selection-start-column="8" selection-end-line="79" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/operations/incisionfunction/IncisionFunctionUnion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/operations/incisionfunction/IncisionFunctionAny.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/operations/selectionfunctions/SelectionFunctionAny.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="25" column="43" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -729,16 +709,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="740">
           <caret line="125" selection-start-line="125" selection-end-line="125" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/operations/KernelContraction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -766,16 +736,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
           <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/operations/incisionfunction/IncisionFunction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -814,11 +774,66 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/operations/contraction/KernelContractor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-666">
-          <caret line="72" column="7" selection-start-line="72" selection-start-column="7" selection-end-line="72" selection-end-column="7" />
+        <state relative-caret-position="360">
+          <caret line="170" column="7" lean-forward="true" selection-start-line="170" selection-start-column="7" selection-end-line="170" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/operations/selectionfunctions/SelectionFunctionAny.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="8" selection-start-line="8" selection-end-line="14" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/operations/incisionfunction/IncisionFunctionAny.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/operations/selectionfunctions/SelectionFunctionFull.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="8" selection-start-line="8" selection-end-line="13" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/operations/incisionfunction/IncisionFunctionUnion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/operations/selectionfunctions/SelectionFunction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="10" column="63" selection-start-line="10" selection-start-column="62" selection-end-line="10" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/operations/incisionfunction/IncisionFunction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/operations/KernelContraction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-799">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>

@@ -6,6 +6,12 @@ import org.semanticweb.owlapi.model.OWLOntology;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * This incision function returns the union of all the elements of the kernel
+ * set.
+ *
+ * @author Luís F. de M. C. Silva
+ */
 public class IncisionFunctionUnion implements IncisionFunction {
 
     @Override
