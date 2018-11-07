@@ -3,14 +3,13 @@ package main.operations.revision;
 import main.operations.auxiliars.AxiomGenerators;
 import main.operations.auxiliars.HumanReadableAxiomExpressionGenerator;
 import main.operations.blackbox.kernel.RevisionKernelBuilder;
-import main.operations.selectionfunctions.SelectionFunction;
+import main.operations.incisionfunction.IncisionFunction;
 import org.semanticweb.HermiT.ReasonerFactory;
 import org.semanticweb.owlapi.model.*;
 import org.semanticweb.owlapi.reasoner.OWLReasoner;
 import org.semanticweb.owlapi.util.InferredAxiomGenerator;
 import org.semanticweb.owlapi.util.InferredOntologyGenerator;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.logging.Level;
@@ -28,12 +27,12 @@ public class Revisor {
 
     private OWLOntologyManager manager;
     private ReasonerFactory reasonerFactory;
-    private SelectionFunction sigma;
+    private IncisionFunction sigma;
 
     private int maxQueueSize;
     private int maxSetElements;
 
-    public Revisor(OWLOntologyManager manager, ReasonerFactory reasonerFactory, SelectionFunction sigma) {
+    public Revisor(OWLOntologyManager manager, ReasonerFactory reasonerFactory, IncisionFunction sigma) {
         this.manager = manager;
         this.reasonerFactory = reasonerFactory;
         this.sigma = sigma;
@@ -86,25 +85,23 @@ public class Revisor {
         Set<Set<OWLAxiom>> revisionSet = revisionKernelBuilder.kernelSet(inferredOntology.getAxioms(), sentence);
 
         // apply a selection function
-        Set<Set<OWLAxiom>> best = sigma.select(ontology, revisionSet);
+        Set<OWLAxiom> best = sigma.incise(ontology, revisionSet);
         if (Logger.getLogger("RV").isLoggable(Level.FINER)) {
             StringBuilder sb = new StringBuilder(
                     "\n---------- " + (best.size()) + " SELECTED ELEMENT"
                             + (best.size() != 1 ? "S" : "") + ": \n");
-            int i = 0;
-            for (Set<OWLAxiom> s : best) {
-                sb.append(String.format("\n[%d/%d]:\n", ++i, best.size())
-                        + HumanReadableAxiomExpressionGenerator
-                        .generateExpressionForSet(s));
-            }
+            sb.append(String.format("\n[%d/%d]:\n", best.size())
+                    + HumanReadableAxiomExpressionGenerator
+                    .generateExpressionForSet(best));
             Logger.getLogger("RV").log(Level.FINER, sb.toString());
         }
 
         // removes set of axioms from the ontology
-        Iterator<Set<OWLAxiom>> it = best.iterator();
-        Set<OWLAxiom> toRemove = it.next();
         Set<OWLAxiom> axioms = ontology.getAxioms();
-        axioms.removeAll(toRemove);
+        axioms.removeAll(best);
+
+        // adds sentence to revise back, to guarantee success
+        axioms.add(sentence);
 
         if (Logger.getLogger("RV").isLoggable(Level.FINE)) {
             Logger.getLogger("RV").log(Level.FINE,

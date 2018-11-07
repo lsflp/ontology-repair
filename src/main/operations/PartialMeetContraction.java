@@ -2,7 +2,7 @@ package main.operations;
 
 import main.operations.auxiliars.AlternativeOWLExpressionParser;
 import main.operations.contraction.PartialMeetContractor;
-import main.operations.selectionfunctions.SelectionFunctionFull;
+import main.operations.selectionfunctions.SelectionFunctionAny;
 import org.semanticweb.HermiT.ReasonerFactory;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.*;
@@ -21,7 +21,6 @@ import java.util.logging.Logger;
  *
  */
 public class PartialMeetContraction {
-
 
     private String inputFileName;
     private String outputFileName;
@@ -61,7 +60,7 @@ public class PartialMeetContraction {
         }
         Logger.getLogger("PMC").log(Level.INFO, "Creating the partial meet contractor...");
         PartialMeetContractor partialMeetContractor = new PartialMeetContractor(manager,
-                new ReasonerFactory(), new SelectionFunctionFull());
+                new ReasonerFactory(), new SelectionFunctionAny());
         partialMeetContractor.setMaxRemainderElements(maxRemainderSize);
         partialMeetContractor.setMaxQueueSize(maxQueueSize);
         Logger.getLogger("PMC").log(Level.INFO, "Executing the operation...");

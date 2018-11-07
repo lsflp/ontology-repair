@@ -1,8 +1,8 @@
 package main.operations;
 
 import main.operations.auxiliars.AlternativeOWLExpressionParser;
+import main.operations.incisionfunction.IncisionFunctionUnion;
 import main.operations.revision.Revisor;
-import main.operations.selectionfunctions.SelectionFunctionFull;
 import org.semanticweb.HermiT.ReasonerFactory;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.*;
@@ -57,7 +57,7 @@ public class Revision {
             return;
         }
         Logger.getLogger("RV").log(Level.INFO, "Creating the pseudo-contractor...");
-        Revisor revisor = new Revisor(manager, new ReasonerFactory(), new SelectionFunctionFull());
+        Revisor revisor = new Revisor(manager, new ReasonerFactory(), new IncisionFunctionUnion());
         revisor.setMaxSetElements(maxSetSize);
         revisor.setMaxQueueSize(maxQueueSize);
         Logger.getLogger("RV").log(Level.INFO, "Executing the operation...");
