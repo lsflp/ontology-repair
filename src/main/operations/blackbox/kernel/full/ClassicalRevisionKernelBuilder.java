@@ -38,7 +38,6 @@ public class ClassicalRevisionKernelBuilder extends AbstractReiterKernelBuilder 
         super(blackBox, manager, reasonerFactory);
     }
 
-
     /**
      * {@inheritDoc}
      *

@@ -4,10 +4,12 @@ import main.operations.blackbox.AbstractBlackBox;
 import main.operations.blackbox.kernel.expansionstrategies.RevisionBlackBoxKernelExpansionStrategy;
 import main.operations.blackbox.kernel.full.ClassicalRevisionKernelBuilder;
 import main.operations.blackbox.kernel.shrinkingstrategies.RevisionBlackBoxKernelShrinkingStrategy;
-import org.semanticweb.owlapi.model.*;
+import org.semanticweb.owlapi.model.OWLAxiom;
+import org.semanticweb.owlapi.model.OWLOntologyChangeException;
+import org.semanticweb.owlapi.model.OWLOntologyCreationException;
+import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
 
-import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -79,34 +81,6 @@ public class RevisionKernelBuilder {
         kn.setMaxKernelElements(maxKernelElements);
         kb.add(entailment);
         return kn.kernelSet(kb, null);
-    }
-
-    /**
-     * Runs Reiter's algorithm to a ontology.
-     *
-     * @param ontology
-     *            the subject ontology
-     * @param manager
-     *            the ontology manager
-     * @param cut
-     *            the cut generated during the kernel algorithm
-     * @return remainderSets
-     *            the sets resulted by the remainder algorithm
-     */
-    public Set<Set<OWLAxiom>> reiterSet(OWLOntology ontology,
-                                        OWLOntologyManager manager, Set<Set<OWLAxiom>> cut) {
-        Set<Set<OWLAxiom>> remainderSets = new HashSet<>();
-        try {
-            for(Set<OWLAxiom> set : cut) {
-                manager.removeAxioms(ontology, set);
-                remainderSets.add(ontology.getAxioms());
-                manager.addAxioms(ontology, set);
-            }
-        } catch (OWLOntologyChangeException e) {
-            e.printStackTrace();
-        }
-
-        return remainderSets;
     }
 
     /**
