@@ -1,0 +1,37 @@
+Prefix(:=<http://www.semanticweb.org/lsflp/ontologies/2018/10/untitled-ontology-71#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://www.semanticweb.org/lsflp/ontologies/2018/10/untitled-ontology-71>
+
+Declaration(Class(:Cancao))
+Declaration(Class(:FunkAmericano))
+Declaration(Class(:FunkBrasileiro))
+Declaration(NamedIndividual(:sóLove))
+############################
+#   Classes
+############################
+
+# Class: :FunkAmericano (:FunkAmericano)
+
+SubClassOf(:FunkAmericano :Cancao)
+
+# Class: :FunkBrasileiro (:FunkBrasileiro)
+
+SubClassOf(:FunkBrasileiro :FunkAmericano)
+
+
+############################
+#   Named Individuals
+############################
+
+# Individual: :sóLove (:sóLove)
+
+ClassAssertion(:FunkBrasileiro :sóLove)
+
+
+)

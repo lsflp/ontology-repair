@@ -1,0 +1,32 @@
+Prefix(:=<http://www.semanticweb.org/lsflp/ontologies/2018/9/untitled-ontology-68#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://www.semanticweb.org/lsflp/ontologies/2018/9/untitled-ontology-68>
+
+Declaration(Class(:Cantor))
+Declaration(Class(:Compositor))
+Declaration(NamedIndividual(:markRonson))
+############################
+#   Classes
+############################
+
+# Class: :Compositor (:Compositor)
+
+SubClassOf(:Compositor :Cantor)
+
+
+############################
+#   Named Individuals
+############################
+
+# Individual: :markRonson (:markRonson)
+
+ClassAssertion(:Compositor :markRonson)
+
+
+)

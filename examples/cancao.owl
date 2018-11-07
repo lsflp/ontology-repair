@@ -1,0 +1,27 @@
+Prefix(:=<http://www.semanticweb.org/lsflp/ontologies/2018/9/untitled-ontology-65#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://www.semanticweb.org/lsflp/ontologies/2018/9/untitled-ontology-65>
+
+Declaration(Class(:Cancao))
+Declaration(Class(:Pop))
+Declaration(Class(:SynthPop))
+############################
+#   Classes
+############################
+
+# Class: :Pop (:Pop)
+
+SubClassOf(:Pop :Cancao)
+
+# Class: :SynthPop (:SynthPop)
+
+SubClassOf(:SynthPop :Pop)
+
+
+)
