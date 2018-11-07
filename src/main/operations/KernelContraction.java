@@ -2,7 +2,7 @@ package main.operations;
 
 import main.operations.auxiliars.AlternativeOWLExpressionParser;
 import main.operations.contraction.KernelContractor;
-import main.operations.selectionfunctions.SelectionFunctionAny;
+import main.operations.incisionfunction.IncisionFunctionAny;
 import org.semanticweb.HermiT.ReasonerFactory;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.*;
@@ -59,7 +59,7 @@ public class KernelContraction {
         }
         Logger.getLogger("KC").log(Level.INFO, "Creating the kernel contractor...");
         KernelContractor kernelContractor = new KernelContractor(manager,
-                new ReasonerFactory(), new SelectionFunctionAny());
+                new ReasonerFactory(), new IncisionFunctionAny());
         kernelContractor.setMaxKernelElements(maxKernelSize);
         kernelContractor.setMaxQueueSize(maxQueueSize);
         Logger.getLogger("KC").log(Level.INFO, "Executing the operation...");
