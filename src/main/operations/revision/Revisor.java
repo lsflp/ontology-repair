@@ -16,7 +16,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Implements a Belief Revision operation called Revision.
+ * Implements a Belief Revision operation called Kernel Revision.
+ *
+ * The operation is defined as:
+ *
+ * B \ σ(K ↓↓ α),
+ *
+ * where σ is a incision function that chooses at least one element of the kernel set,
+ * denoted by ↓↓.
  *
  * The resulting set must have the formula α and can not be inconsistent.
  *
@@ -25,13 +32,41 @@ import java.util.logging.Logger;
  */
 public class Revisor {
 
-    private OWLOntologyManager manager;
+    /**
+     * A factory that constructs the reasoner.
+     */
     private ReasonerFactory reasonerFactory;
+
+    /**
+     * The ontology manager.
+     */
+    private OWLOntologyManager manager;
+
+    /**
+     * An incision function implementation.
+     */
     private IncisionFunction sigma;
 
-    private int maxQueueSize;
-    private int maxSetElements;
+    /**
+     * The capacity of the queue used by this algorithm.
+     */
+    private int maxQueueSize = Integer.MAX_VALUE;
 
+    /**
+     * The maximum number of elements of the kernel set that will be computed.
+     */
+    private int maxSetElements = Integer.MAX_VALUE;
+
+    /**
+     * Instantiates the class.
+     *
+     * @param manager
+     *            the ontology manager
+     * @param reasonerFactory
+     *            a factory that constructs the reasoner
+     * @param sigma
+     *            an incision function implementation
+     */
     public Revisor(OWLOntologyManager manager, ReasonerFactory reasonerFactory, IncisionFunction sigma) {
         this.manager = manager;
         this.reasonerFactory = reasonerFactory;
@@ -136,9 +171,9 @@ public class Revisor {
 
     /**
      *
-     * Gets the maximum number of elements in the computed remainder set.
+     * Gets the maximum number of elements in the computed kernel set.
      *
-     * @return the maximum size of the computed remainder set
+     * @return the maximum size of the computed kernel set
      */
     public int getMaxSetElements() {
         return maxSetElements;
@@ -146,10 +181,10 @@ public class Revisor {
 
     /**
      *
-     * Sets the maximum number of elements in the computed remainder set.
+     * Sets the maximum number of elements in the computed kernel set.
      *
      * @param maxSetElements
-     *            the maximum size of the computed remainder set
+     *            the maximum size of the computed kernel set
      */
     public void setMaxSetElements(int maxSetElements) {
         this.maxSetElements = maxSetElements;
