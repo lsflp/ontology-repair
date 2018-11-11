@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="77dfdc67-bd52-4095-87c8-6d5b4adb4be6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/operations/blackbox/kernel/RevisionKernelBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/operations/blackbox/kernel/RevisionKernelBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/operations/blackbox/kernel/full/ClassicalRevisionKernelBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/operations/blackbox/kernel/full/ClassicalRevisionKernelBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/OntologyRepair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/OntologyRepair.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/archive-tmp/ontologyrepair-1.0.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/archive-tmp/ontologyrepair-1.0.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/OntologyRepair.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/OntologyRepair.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ontologyrepair-1.0.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/ontologyrepair-1.0.0-SNAPSHOT.jar" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,52 +28,97 @@
           <entry key="project.closed" value="5" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.36" value="1" />
+          <entry key="project.open.time.46" value="2" />
+          <entry key="project.open.time.51" value="1" />
           <entry key="project.open.time.52" value="1" />
           <entry key="project.open.time.53" value="1" />
           <entry key="project.open.time.62" value="1" />
           <entry key="project.open.time.65" value="1" />
           <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="8" />
+          <entry key="project.opened" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="8" />
-          <entry key="java" value="235" />
+          <entry key="java" value="242" />
           <entry key="owl" value="1" />
           <entry key="sh" value="1" />
-          <entry key="xml" value="2" />
+          <entry key="xml" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="8" />
-          <entry key="JAVA" value="235" />
+          <entry key="JAVA" value="242" />
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="XML" value="2" />
+          <entry key="XML" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="2512" />
-          <entry key="xml" value="9" />
+          <entry key="java" value="4085" />
+          <entry key="xml" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2512" />
-          <entry key="XML" value="9" />
+          <entry key="JAVA" value="4085" />
+          <entry key="XML" value="14" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/operations/blackbox/kernel/full/ClassicalRevisionKernelBuilder.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/operations/SRWPseudoContraction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-57">
-              <caret line="64" column="12" selection-start-line="64" selection-start-column="12" selection-end-line="64" selection-end-column="12" />
+            <state relative-caret-position="341">
+              <caret line="35" column="79" selection-start-line="34" selection-start-column="31" selection-end-line="35" selection-end-column="79" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/OntologyRepair.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="466">
+              <caret line="147" selection-start-line="147" selection-end-line="147" />
+              <folding>
+                <element signature="e#3455#3456#0" expanded="true" />
+                <element signature="e#3481#3482#0" expanded="true" />
+                <element signature="e#3494#3495#0" expanded="true" />
+                <element signature="e#3562#3563#0" expanded="true" />
+                <element signature="e#3609#3610#0" expanded="true" />
+                <element signature="e#3672#3673#0" expanded="true" />
+                <element signature="e#3722#3723#0" expanded="true" />
+                <element signature="e#3771#3772#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/PerformanceTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="276">
+              <caret line="41" selection-start-line="41" selection-end-line="41" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/Statistics.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
             </state>
           </provider>
         </entry>
@@ -106,17 +157,14 @@
         <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/full/AbstractReiterKernelBuilder.java" />
         <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/shrinkingstrategies/ClassicalBlackBoxKernelShrinkingStrategy.java" />
         <option value="$PROJECT_DIR$/src/main/operations/blackbox/remainder/shrinkingstrategies/TrivialBlackBoxRemainderShrinkingStrategy.java" />
-        <option value="$PROJECT_DIR$/src/main/operations/srwpseudocontraction/SRWPseudoContractor.java" />
         <option value="$PROJECT_DIR$/src/main/operations/auxiliars/AlternativeOWLExpressionParser.java" />
         <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/full/OptimizedReiterKernelBuilder.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/shrinkingstrategies/RevisionBlackBoxKernelShrinkingStrategy.java" />
         <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/expansionstrategies/RevisionBlackBoxKernelExpansionStrategy.java" />
         <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/RevisionBlackBoxKernel.java" />
         <option value="$PROJECT_DIR$/src/main/operations/blackbox/AbstractBlackBoxShrinkingStrategy.java" />
         <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/full/ClassicalReiterKernelBuilder.java" />
         <option value="$PROJECT_DIR$/src/main/operations/blackbox/OperatorStrategy.java" />
-        <option value="$PROJECT_DIR$/src/main/OntologyRepair.java" />
         <option value="$PROJECT_DIR$/src/main/operations/PartialMeetContraction.java" />
         <option value="$PROJECT_DIR$/src/main/operations/incisionfunction/IncisionFunctionSome.java" />
         <option value="$PROJECT_DIR$/src/main/operations/Revision.java" />
@@ -130,6 +178,13 @@
         <option value="$PROJECT_DIR$/src/main/operations/incisionfunction/IncisionFunction.java" />
         <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/RevisionKernelBuilder.java" />
         <option value="$PROJECT_DIR$/src/main/operations/blackbox/kernel/full/ClassicalRevisionKernelBuilder.java" />
+        <option value="$PROJECT_DIR$/src/test/SRWPseudoContractionTest.java" />
+        <option value="$PROJECT_DIR$/src/main/operations/srwpseudocontraction/SRWPseudoContractor.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/test/performanceTest.java" />
+        <option value="$PROJECT_DIR$/src/test/PerformanceTest.java" />
+        <option value="$PROJECT_DIR$/src/test/Statistics.java" />
+        <option value="$PROJECT_DIR$/src/main/OntologyRepair.java" />
       </list>
     </option>
   </component>
@@ -157,7 +212,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -187,53 +241,13 @@
               <item name="ontologyrepair" type="b2602c69:ProjectViewProjectNode" />
               <item name="ontology-repair" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="operations" type="462c0819:PsiDirectoryNode" />
-              <item name="blackbox" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ontologyrepair" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ontology-repair" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="operations" type="462c0819:PsiDirectoryNode" />
-              <item name="blackbox" type="462c0819:PsiDirectoryNode" />
-              <item name="kernel" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ontologyrepair" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ontology-repair" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="operations" type="462c0819:PsiDirectoryNode" />
-              <item name="blackbox" type="462c0819:PsiDirectoryNode" />
-              <item name="kernel" type="462c0819:PsiDirectoryNode" />
-              <item name="expansionstrategies" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ontologyrepair" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ontology-repair" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="operations" type="462c0819:PsiDirectoryNode" />
-              <item name="blackbox" type="462c0819:PsiDirectoryNode" />
-              <item name="kernel" type="462c0819:PsiDirectoryNode" />
-              <item name="full" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ontologyrepair" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ontology-repair" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="operations" type="462c0819:PsiDirectoryNode" />
-              <item name="blackbox" type="462c0819:PsiDirectoryNode" />
-              <item name="kernel" type="462c0819:PsiDirectoryNode" />
-              <item name="shrinkingstrategies" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
@@ -241,7 +255,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541612133593" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541894809031" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/target/ontologyrepair-1.0.0-SNAPSHOT.jar" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -273,7 +287,7 @@
     </configuration>
     <configuration name="ontology-repair" type="JarApplication" factoryName="JAR Application">
       <option name="JAR_PATH" value="$PROJECT_DIR$/target/ontologyrepair-1.0.0-SNAPSHOT.jar" />
-      <option name="PROGRAM_PARAMETERS" value="-r -i examples/funk.owl -o output.owl -f &quot;FunkBrasileiro DisjointWith FunkAmericano&quot;" />
+      <option name="PROGRAM_PARAMETERS" value="-srw -t -i examples/pessoa.owl -o output.owl -f &quot;markRonson Type: Cantor&quot;" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2" />
@@ -306,17 +320,20 @@
       <workItem from="1541552557721" duration="2174000" />
       <workItem from="1541596545989" duration="590000" />
       <workItem from="1541609526094" duration="2534000" />
+      <workItem from="1541879874582" duration="1302000" />
+      <workItem from="1541882915908" duration="1124000" />
+      <workItem from="1541888692813" duration="5185000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41431000" />
+    <option name="totallyTimeSpent" value="49042000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25026682" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25827107" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -390,8 +407,25 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/Statistics.java</url>
+          <line>7</line>
+          <properties />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>or.isTest()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>((Long) Integer.MAX_VALUE + Integer.MAX_VALUE) &lt; Integer.MAX_VALUE</expression-string>
         <language-id>JAVA</language-id>
@@ -432,40 +466,9 @@
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
-      <expression>
-        <expression-string>X</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>reasoner.isConsistent()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/operations/blackbox/kernel/full/OptimizedReiterKernelBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-228">
-          <caret line="17" column="62" lean-forward="true" selection-start-line="17" selection-start-column="62" selection-end-line="17" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/net/sourceforge/owlapi/owlapi-distribution/4.1.3/owlapi-distribution-4.1.3.jar!/uk/ac/manchester/cs/owl/owlapi/concurrent/ConcurrentOWLOntologyImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="903" selection-start-line="903" selection-end-line="903" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/operations/blackbox/kernel/full/ClassicalReiterKernelBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1634">
-          <caret line="96" column="18" selection-start-line="96" selection-start-column="18" selection-end-line="96" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/operations/incisionfunction/IncisionFunctionSome.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/net/sourceforge/owlapi/owlapi-distribution/4.1.3/owlapi-distribution-4.1.3.jar!/uk/ac/manchester/cs/owl/owlapi/OWLObjectImplWithEntityAndAnonCaching.class">
       <provider selected="true" editor-type-id="text-editor">
@@ -474,31 +477,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/output.owl">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/output.owl" />
     <entry file="file://$PROJECT_DIR$/install.sh">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/OntologyRepair.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="740">
-          <caret line="125" selection-start-line="125" selection-end-line="125" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/operations/SRWPseudoContraction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-970">
-          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/operations/PartialMeetContraction.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -514,16 +495,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
           <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/operations/srwpseudocontraction/SRWPseudoContractor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1901">
-          <caret line="71" column="7" lean-forward="true" selection-start-line="62" selection-start-column="4" selection-end-line="71" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -565,9 +536,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="398">
           <caret line="29" column="17" lean-forward="true" selection-start-line="28" selection-start-column="3" selection-end-line="29" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -575,9 +543,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3420">
           <caret line="186" column="57" selection-start-line="186" selection-start-column="57" selection-end-line="186" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -585,9 +550,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="665">
           <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -602,9 +564,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
           <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -612,9 +571,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="15" column="33" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -664,9 +620,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
           <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -674,9 +627,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
           <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -754,9 +704,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
           <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -764,9 +711,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
           <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -774,9 +718,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -825,10 +766,69 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/SRWPseudoContractionTest.java" />
     <entry file="file://$PROJECT_DIR$/src/main/operations/blackbox/kernel/full/ClassicalRevisionKernelBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-57">
+        <state relative-caret-position="532">
           <caret line="64" column="12" selection-start-line="64" selection-start-column="12" selection-end-line="64" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/operations/srwpseudocontraction/SRWPseudoContractor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="91" column="33" selection-start-line="91" selection-start-column="33" selection-end-line="91" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="45" column="59" lean-forward="true" selection-start-line="45" selection-start-column="59" selection-end-line="45" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/operations/SRWPseudoContraction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="35" column="79" selection-start-line="34" selection-start-column="31" selection-end-line="35" selection-end-column="79" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Statistics.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/OntologyRepair.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="466">
+          <caret line="147" selection-start-line="147" selection-end-line="147" />
+          <folding>
+            <element signature="e#3455#3456#0" expanded="true" />
+            <element signature="e#3481#3482#0" expanded="true" />
+            <element signature="e#3494#3495#0" expanded="true" />
+            <element signature="e#3562#3563#0" expanded="true" />
+            <element signature="e#3609#3610#0" expanded="true" />
+            <element signature="e#3672#3673#0" expanded="true" />
+            <element signature="e#3722#3723#0" expanded="true" />
+            <element signature="e#3771#3772#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/PerformanceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
