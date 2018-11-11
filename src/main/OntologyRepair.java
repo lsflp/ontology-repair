@@ -7,6 +7,7 @@ import main.operations.KernelContraction;
 import main.operations.PartialMeetContraction;
 import main.operations.SRWPseudoContraction;
 import main.operations.Revision;
+import test.PerformanceTest;
 
 /**
  * Command-line interface of the plug-in.
@@ -59,6 +60,9 @@ public class OntologyRepair {
     @Parameter(names = { "-h", "--help" }, help = true)
     private boolean help = false;
 
+    @Parameter(names = { "-t", "--test" })
+    private boolean test = false;
+
     private void run() {
         if (canPerformContraction()) {
             if (coreRetainment) {
@@ -87,8 +91,19 @@ public class OntologyRepair {
         }
     }
 
+    private void runTests() {
+        PerformanceTest pt = new PerformanceTest(inputFileName, outputFileName, formulaString, maxQueueSize, maxSetSize);
+        pt.setOperations(contraction && coreRetainment ,contraction && relevance,
+                          revision, srwPseudoContraction);
+        pt.run();
+    }
+
     private boolean isHelp() {
         return help;
+    }
+
+    private boolean isTest() {
+        return test;
     }
 
     private boolean isOneOperation() {
@@ -121,7 +136,14 @@ public class OntologyRepair {
             jc.usage();
             return;
         }
-        or.run();
+
+        if (!or.isTest()) {
+            or.run();
+        }
+
+        else {
+            or.runTests();
+        }
 
     }
 }
