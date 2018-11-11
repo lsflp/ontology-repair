@@ -2,7 +2,9 @@
  Implementation of Contraction, Revision and SRW pseudo-contraction operations.
  ### Compiling
  Requires Java 8 and Maven 3.
- `./install.sh` <- Generates a standalone plugin.
+ 
+ Run `./install.sh` to generate the plug-in.
+ 
  The JAR file will be generated in the *target* subdirectory.
  ### Running
  `java -jar target/ontologyrepair-1.0.0-SNAPSHOT.jar <operation> <minimality-postulate> -i <ontology-file-name> -o <output-file-name> -f <formula-to-be-contracted>`, where:
@@ -15,3 +17,5 @@
  
  Example:
 `java -jar target/ontologyrepair-1.0.0-SNAPSHOT.jar -srw -i examples/cisne.owl -o output.owl -f "cisne_negro Type: AnimalBranco`
+
+For the performance tests, it is necessary to include `-t` after the arguments.
