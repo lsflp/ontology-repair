@@ -24,7 +24,7 @@ public class PerformanceTest {
     private boolean partialMeetContraction;
     private boolean revision;
     private boolean srwPseudoContraction;
-    private int numberOfTests = 100;
+    private int numberOfTests = 1000;
 
     /**
      * The constructor of the class.
