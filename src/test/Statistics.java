@@ -8,8 +8,8 @@ public class Statistics {
         double mean = getMean(executionTimes);
         double stdd = getStandardDeviation(executionTimes);
 
-        double lower = mean - 1.96 * stdd;
-        double higher = mean + 1.96 * stdd;
+        double lower = mean - 1.96 * stdd/Math.sqrt(executionTimes.size());
+        double higher = mean + 1.96 * stdd/Math.sqrt(executionTimes.size());
 
         // print results
         System.out.println("MÉDIA DE TEMPO = " + mean);
