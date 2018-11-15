@@ -1,0 +1,27 @@
+Prefix(:=<http://www.semanticweb.org/lsflp/ontologies/2018/10/untitled-ontology-86#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://www.semanticweb.org/lsflp/ontologies/2018/10/untitled-ontology-86>
+
+Declaration(Class(:HinoNacional))
+Declaration(Class(:Marcha))
+Declaration(Class(:MusicaBelica))
+############################
+#   Classes
+############################
+
+# Class: :Marcha (:Marcha)
+
+SubClassOf(:Marcha :MusicaBelica)
+
+# Class: :MusicaBelica (:MusicaBelica)
+
+SubClassOf(:MusicaBelica :HinoNacional)
+
+
+)
